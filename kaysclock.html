@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title> Kay's Clock | Timer | Stopwatch</title>
+    <meta name="description" content="This clock webpage displays the current
+    date and time and allows use to use a timer or stopwatch. You can also set
+    the timezone you're in. The default is set to Eastern Standard Time (EST)">
+    <link href="clock.css" rel="stylesheet">
+  </head>
+
+  <!-- BODY CONTENT -->
+  <body onload="displayCurrentTime(); startCurrentTime()">
+    <div class="container">
+
+      <header>
+         <h1> Kay's Clock </h1>
+      </header>
+
+      <div class="section">
+        <h2 class="shadow" id="clockTitle"> What time is it?</h2>
+        <h2 id="timeDisplay"></h2>
+        <br><br>
+        <img src="clockImages/warpedClock.png" alt="A warped clock that's fading away">
+
+        <form>
+          Minutes: <select id="timerMinutes" name="timerMinutes">
+            <script language="javascript" type="text/javascript">
+              for (var i=0; i<60; i++) {
+                document.write("<option>"+i+"</option>");
+              }
+            </script>
+          </select>
+          Seconds: <select id="timerSeconds" name="timerSeconds">
+            <script language="javascript" type="text/javascript">
+              for (var i=0; i<60; i++) {
+                document.write("<option>"+i+"</option>");
+              }
+            </script>
+          </select>
+        </form>
+
+        <button onclick="stopCurrentTime(); startTimer()">Start Timer</button>
+        <button onclick="stopTimer()">Stop Timer</button>
+        <br><br>
+        <button onclick="stopCurrentTime(); startStopwatch()">Start Stopwatch</button>
+        <button onclick="pauseStopwatch()">Pause Stopwatch</button>
+        <button onclick="resetStopwatch()">Reset Stopwatch</button>
+        <br><br>
+        <button class="large" onclick="stopTimer(); pauseStopwatch(); startCurrentTime()">
+          Current Time</button>
+      </div>
+
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="clock.js"></script>
+
+  </body>
+</html>

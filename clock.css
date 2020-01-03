@@ -1,0 +1,174 @@
+/* Stylesheet for Kay's Clock
+Theme Name: Tic Toc
+Author: Kayla D. Coleman
+Author URI: www.github.com/kdcoleman
+*/
+
+/* Downloaded Fonts*/
+@import url(https://fonts.googleapis.com/css?family=Bangers&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(https://fonts.googleapis.com/css?family=GFS+Didot);
+@import url(https://fonts.googleapis.com/css?family=Caudex:400,400i,700,700i);
+
+
+/***************************** GENERIC ELEMENTS *******************************/
+
+/*Selectors*/
+#center {
+  text-align: center;
+}
+#right {
+  text-align: right;
+}
+
+html, body {
+  background-color: #5094b8;
+  position: relative;
+  height: 100%;
+}
+
+/*Headings*/
+h1, h2 {
+  font-family: 'Bungee Inline', cursive;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 10px;
+  letter-spacing: 2px;
+  color: #FFF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+  h1 {
+    text-shadow: -8px 2px #132845;
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 36px;
+  }
+  h2.shadow {
+    text-shadow: -8px 2px #132845;
+  }
+  h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 24px;
+    font-weight: 200;
+    color: #FFF;
+  }
+  h4 {
+    font-family: 'Mukta Vaani', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 200;
+    line-height: 20px;
+    line-height: 150%;
+    color: #FFF;
+    text-align: left;
+  }
+  p  {
+    font-family: 'Bangers', cursive;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 200;
+    line-height: 20px;
+    color: #FFF;
+  }
+
+  img {
+    border: 10px solid #132845;
+    border-radius: 15px;
+    width: 70%;
+  }
+
+  button, button.large {
+    background-color: #132845;
+    color: #FFF;
+    font-size: 12px;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 5px;
+    text-align: center;
+    border: 10px solid #5094b8;
+    border-radius: 10px;
+    height: 10%;
+    width: 20%;
+    padding: 10px;
+  }
+
+  button.large {
+    width: 40%;
+  }
+
+  form {
+    display: block;
+    clear: left;
+    padding: 20px;
+    margin-top: 10px;
+    font-family: 'Bangers', cursive;
+    font-size: 14px;
+    color: #FFF;
+    letter-spacing: 2px;
+  }
+
+  select {
+    background: white;
+    color: #5094b8;
+    width: 20%;
+  }
+
+  /********************************* HEADER *************************************/
+  header {
+    padding: 15px;
+    color: #132845;
+    background-color: #5094b8;
+    clear: left;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  /******************************* MAIN CONTENT *********************************/
+  .container {
+    background-color: #5094b8;
+    color: #132845;
+    margin: 0px;
+    padding-bottom: 100px;
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+    display: block;
+  }
+
+  .section {
+    background-color: #5094b8;
+    width: 70%;
+    position: relative;
+    padding: 20px;
+    margin: 0px auto;
+    overflow: auto;
+    display: block;
+    text-align: center;
+  }
+
+  /********************************** FOOTER ************************************/
+  footer {
+    padding: 10px;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: rgb(70,70,70);
+    background-color: #FFF;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
