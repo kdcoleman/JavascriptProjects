@@ -7,21 +7,8 @@ Author URI: www.github.com/kdcoleman
 /* Downloaded Fonts*/
 @import url(https://fonts.googleapis.com/css?family=Bangers&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
-@import url(https://fonts.googleapis.com/css?family=GFS+Didot);
-@import url(https://fonts.googleapis.com/css?family=Caudex:400,400i,700,700i);
-
 
 /***************************** GENERIC ELEMENTS *******************************/
-
-/*Selectors*/
-#center {
-  text-align: center;
-}
-#right {
-  text-align: right;
-}
 
 html, body {
   background-color: #5094b8;
@@ -61,7 +48,7 @@ h1, h2 {
     color: #FFF;
   }
   h4 {
-    font-family: 'Mukta Vaani', sans-serif;
+    font-family: Arial;
     font-size: 18px;
     font-style: normal;
     font-variant: normal;
@@ -165,7 +152,7 @@ h1, h2 {
     color: rgb(70,70,70);
     background-color: #FFF;
     text-align: center;
-    font-family: 'Cinzel', serif;
+    font-family: 'Bangers', cursive;
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
