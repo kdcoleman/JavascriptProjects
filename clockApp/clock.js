@@ -48,7 +48,7 @@ function startTimer() {
   }
   function checkTime() {
     checkIfLessThan10();
-    if (mins > 0 && secs > 0) {
+    if (mins >= 0 && secs > 0) {
       document.getElementById('timeDisplay').innerHTML= mins+":"+secs;
       secs--;
     }
@@ -56,10 +56,6 @@ function startTimer() {
       document.getElementById('timeDisplay').innerHTML= mins+":"+secs;
       mins--;
       secs = 59;
-    }
-    else if (mins == 0 && secs > 0) {
-      document.getElementById('timeDisplay').innerHTML= mins+":"+secs;
-      secs--;
     }
     else if (mins == 0 && secs == 0) {
       document.getElementById('timeDisplay').innerHTML = "Time's Up!";
