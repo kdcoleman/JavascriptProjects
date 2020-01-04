@@ -9,7 +9,8 @@
   </head>
 
   <!-- BODY CONTENT -->
-  <body onload="displayCurrentTime(); startCurrentTime()">
+  <body onload="displayCurrentTime(); startCurrentTime();
+  addTimerOptions('timerMinutes'); addTimerOptions('timerSeconds')">
     <div class="container">
 
       <header>
@@ -23,20 +24,8 @@
         <img src="clockImages/warpedClock.png" alt="A warped clock that's fading away">
 
         <form>
-          Minutes: <select id="timerMinutes" name="timerMinutes">
-            <script language="javascript" type="text/javascript">
-              for (var i=0; i<60; i++) {
-                document.write("<option>"+i+"</option>");
-              }
-            </script>
-          </select>
-          Seconds: <select id="timerSeconds" name="timerSeconds">
-            <script language="javascript" type="text/javascript">
-              for (var i=0; i<60; i++) {
-                document.write("<option>"+i+"</option>");
-              }
-            </script>
-          </select>
+          Minutes: <select id="timerMinutes" name="timerMinutes"></select>
+          Seconds: <select id="timerSeconds" name="timerSeconds"></select>
         </form>
 
         <button onclick="stopCurrentTime(); startTimer()">Start Timer</button>

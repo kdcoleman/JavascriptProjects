@@ -22,19 +22,23 @@ function stopCurrentTime() {
   clearInterval(currentTimeInterval);
 }
 
-// Create Dropdown for Timer Method
+// Set Dropdown Options for Timer
+function setTimerOptions() {
+  df = document.createDocumentFragment();
+  for (var i = 0; i < 60; i++) {
+    var option = document.createElement('option');
+    option.value = i;
+    option.appendChild(document.createTextNode(i));
+    df.appendChild(option);
+  }
+  return df
+}
 
-// function setTimerOptions() {
-//   var df = document.createDocumentFragment();
-//   for (var i = 1; i < 60; i++) {
-//     var option = document.createElement('option');
-//     option.value = i;
-//     option.appendChild(document.createTextNode("option #" + i));
-//     df.appendChild(option);
-//   }
-//   document.getElementById('timerMinutes').appendChild(df);
-//   document.getElementById('timerSeconds').appendChild(df);
-// }
+// Add Dropdown Options to Element
+function addTimerOptions(elemId) {
+  docf = setTimerOptions();
+  document.getElementById(elemId).appendChild(docf);
+}
 
 // Display Timer Methods
 function startTimer() {
