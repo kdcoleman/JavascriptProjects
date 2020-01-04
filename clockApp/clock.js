@@ -43,12 +43,8 @@ function startTimer() {
   document.getElementById('clockTitle').innerHTML = "Timer";
   timerInterval = setInterval(checkTime, 1000);
   function checkIfLessThan10() {
-    if (mins < 10) {
-      mins = ("0" + mins).slice(-2);
-    }
-    if (secs < 10) {
-      secs = ("0" + secs).slice(-2);
-    }
+    mins = mins < 10 ? ("0" + mins).slice(-2) : mins;
+    secs = secs < 10 ? ("0" + secs).slice(-2) : secs;
   }
   function checkTime() {
     checkIfLessThan10();
