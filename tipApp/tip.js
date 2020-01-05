@@ -68,3 +68,18 @@ function displayTotal() {
   }
 
 }
+
+// Display tip and total when press enter in input fields
+document.getElementById('billAmount').onkeypress = function (event) {
+  if (event.keyCode == 13) {
+    displayTip();
+    displayTotal();
+  }
+}
+
+document.getElementById('numGuests').onkeypress = function (event) {
+  if (event.keyCode == 13) {
+    displayTip();
+    displayTotal();
+  }
+}
