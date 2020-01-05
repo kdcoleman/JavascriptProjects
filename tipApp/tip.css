@@ -34,7 +34,7 @@ h1, h2 {
   h2 {
     font-size: 18px;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 15px;
   }
   h3 {
     font-family: 'Solway', serif;
@@ -89,11 +89,11 @@ h1, h2 {
   }
   button.top {
     top: 10%;
-    left: 45%;
+    left: 50%;
   }
   button.bottom {
     top: 50%;
-    left: 45%;
+    left: 50%;
   }
 
   form {
@@ -129,7 +129,7 @@ h1, h2 {
     width: 55%;
     max-width: 75%;
     box-sizing: border-box;
-    border: 2px solid #4c0b2d;
+    border: 1px solid #4c0b2d;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     background-color: #FFF;
     background-image: linear-gradient(#FFF, #F0F0F0);
@@ -138,7 +138,7 @@ h1, h2 {
   select:focus {
     outline: none;
     border-color: #4c0b2d;
-    box-shadow: 0px 0px 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0px 0px 3px 3px rgba(59, 153, 252, .7);
     color: #000;
   }
 
@@ -166,7 +166,7 @@ h1, h2 {
 
   .card {
     background-color: #FFF;
-    width: 45%;
+    width: 40%;
     position: relative;
     padding: 0;
     margin: 0px auto;
@@ -200,8 +200,8 @@ h1, h2 {
   }
   .bottom {
     border: 1px solid #000;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     box-shadow: 1px 1px 1px 1px #000;
   }
 
