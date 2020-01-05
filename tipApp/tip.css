@@ -193,8 +193,8 @@ h1, h2 {
 
   .top {
     border: 1px solid #000;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     box-shadow: 1px 1px 1px 1px #000;
 
   }
