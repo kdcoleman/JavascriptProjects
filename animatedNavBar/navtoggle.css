@@ -1,0 +1,166 @@
+/* Stylesheet for an Animated Navigation Bar
+Theme Name: Animate
+Author: Kayla D. Coleman
+Author URI: www.github.com/kdcoleman
+*/
+
+/* Downloaded Fonts*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);
+
+/***************************** GENERIC ELEMENTS *******************************/
+
+html, body {
+  background-color: #083e89;
+  position: relative;
+  height: 100%;
+  margin: 0;
+}
+
+/*Headings*/
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600;
+  font-size: 36px;
+  color: #FFF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+  h1{
+    text-align: left;
+    display: inline-block;
+  }
+
+  h2 {
+    font-size: 24px;
+    display: inline-block;
+    text-align: left;
+  }
+  h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFF;
+  }
+  h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    line-height: 150%;
+    color: #FFF;
+    text-align: left;
+  }
+  p, p.home  {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300;
+    line-height: 20px;
+    color: #FFF;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+  }
+  p.home {
+    width: 50%;
+  }
+
+  img {
+    border: 10px solid #52c6cb;
+    border-radius: 10px;
+    width: 60%;
+    margin-top: 20px;
+  }
+
+  img.bars {
+    border: none;
+    width: 5%;
+    position: absolute;
+    top: 3%;
+    left: 90%;
+    display: inline-block;
+    margin: 0;
+  }
+
+
+  button {
+    background-color: #7545d4;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    width: 40%;
+    padding: 20px 7px;
+    display: inline-block;
+    margin-left: 30px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+  }
+  button:hover {
+    outline-color: #52c6cb;
+  }
+
+  /********************************* HEADER *************************************/
+  header {
+    padding: 15px;
+    color: #FFF;
+    background-color: #083e89;
+    clear: left;
+    text-align: left;
+    margin: 0px;
+  }
+
+  /******************************* MAIN CONTENT *********************************/
+  .container {
+    background-color: #083e89;
+    color: #FFF;
+    margin: 0px;
+    padding-bottom: 50px;
+    position: relative;
+    min-height: 100%;
+    overflow: visible;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .section {
+    background-color: #083e89;
+    color: #FFF;
+    width: 80%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: auto;
+    display: block;
+    text-align: center;
+    margin: 0px auto;
+    padding: 20px;
+  }
+
+
+  /********************************** FOOTER ************************************/
+  footer {
+    padding: 20px;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: #52c6cb;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+  }
