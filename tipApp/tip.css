@@ -8,10 +8,6 @@ Author URI: www.github.com/kdcoleman
 @import url(https://fonts.googleapis.com/css?family=Solway:300&display=swap);
 
 /***************************** GENERIC ELEMENTS *******************************/
-/* Selectors */
-#center {
-  text-align: center;
-}
 
 html, body {
   background-color: #4c0b2d;
@@ -30,6 +26,9 @@ h1, h2 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+  h1{
+    text-align: center;
+  }
 
   h2 {
     font-size: 18px;
