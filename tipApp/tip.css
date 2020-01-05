@@ -84,6 +84,9 @@ h1, h2 {
     margin-left: 30px;
     position: absolute;
   }
+  button.top:hover, button.bottom:hover {
+    background-color: #9d185e;
+  }
   button.top {
     top: 10%;
     left: 45%;
