@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title> Tip Calculator</title>
+    <meta name="description" content="Calculate the tip based on percentage
+    or how you feel your service was. Also, determine how much each person
+    should pay if your splitting the bill with friends.">
+    <link href="tip.css" rel="stylesheet">
+  </head>
+
+  <!-- BODY CONTENT -->
+  <body onload="addPerentageOptions('tipPercentage')">
+    <div class="container">
+
+      <header></header>
+
+      <div class="card">
+        <div class="section">
+          <h1 id="center">TIP CALCULATOR</h1>
+        </div>
+
+        <form>
+          How much is the bill? <br>
+          $ <input type="text" placeholder="Bill Amount" id="billAmount"><br><br>
+          Tip Percentage <br>
+          <select  id="tipPercentage"></select><br><br>
+          Number of Guests <br>
+          <input type="text" value="1" placeholder="Number of Guests" id="numGuests"><br><br>
+        </form>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <div class="section">
+          <h2 id="tipAmount">Tip Amount: $0.00</h2>
+          <button class="top" onclick="displayTip()">Calculate Tip</button><br>
+          <h2 id="totalAmount">Total Per Guest: $0.00</h2>
+          <button class="bottom" onclick="displayTotal()">Calculate Total</button>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer> Created by: Kayla D. Coleman </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="tip.js"></script>
+
+  </body>
+</html>
