@@ -32,6 +32,13 @@ h1, h2 {
     display: inline-block;
   }
 
+  /* Add shadow when active */
+  h1.active {
+    text-shadow: 1px 3px 3px #52c6cb;
+    transition-delay: 400ms;
+    transition-duration: 250ms;
+  }
+
   h2 {
     font-size: 24px;
     display: inline-block;
@@ -78,36 +85,85 @@ h1, h2 {
     margin-top: 20px;
   }
 
-  img.bars {
-    border: none;
-    width: 5%;
-    position: absolute;
-    top: 3%;
-    left: 90%;
-    display: inline-block;
-    margin: 0;
+  /* Hide image when nav bar active */
+  img.active {
+    visibility: hidden;
+    transition-duration: 200ms;
   }
 
-
-  button {
+  /* Side panels of nav bar */
+  nav::before, nav::after {
     background-color: #7545d4;
+    content:"";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 60%;
+    transition: all 100ms ease-in-out 300ms;
+  }
+
+  /* Pin to left and right */
+  nav::before {
+    left: 0;
+  }
+  nav::after {
+    right: 0;
+  }
+
+  /* When active increase width to 25%  */
+  nav.active::before, nav.active::after {
+    width: 25%;
+    z-index: 1000;
+  }
+
+  /* Hide nav list when not active */
+  nav ul {
+    position: absolute;
+    top: -30%;
+    left: 46%;
+    transform: translate(-50%,-50%);
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    z-index: 2000;
+  }
+
+  /* When active animate nav list down */
+  nav.active ul {
+    top: 30%;
+    transform: translate(-50%,-50%);
+    transition-delay: 560ms;
+    transition-duration: 240ms;
+    transition-timing-function: cubic-bezier(.1, .2, .3, 1.4);
+  }
+
+  nav ul li {
+    background-color: #083e89;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    display: block;
+  }
+
+  /* Hide nav links when not active */
+  nav ul li a {
+    background-color: #083e89;
     color: #FFF;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    border: 1px solid #FFF;
-    border-radius: 5px;
-    width: 40%;
-    padding: 20px 7px;
-    display: inline-block;
-    margin-left: 30px;
-    position: absolute;
-    top: 15%;
-    left: 50%;
+    text-decoration: none;
+    opacity: 0;
+    transition-delay: 130ms;
   }
-  button:hover {
-    outline-color: #52c6cb;
+
+  /* Show link when active */
+  nav ul li a.active {
+    transition-delay: 600ms;
+    opacity: 1;
+  }
+  nav ul li a:hover {
+    color: #52c6cb;
   }
 
   /********************************* HEADER *************************************/
@@ -128,7 +184,7 @@ h1, h2 {
     padding-bottom: 50px;
     position: relative;
     min-height: 100%;
-    overflow: visible;
+    overflow: hidden;
     display: block;
     box-sizing: border-box;
   }
@@ -147,6 +203,61 @@ h1, h2 {
     padding: 20px;
   }
 
+  /* Keeps the heading and nav toggle bars visible at the top */
+  .sticky {
+    position: relative;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-toggle {
+    cursor: pointer;
+    width: 55px;
+    z-index: 3;
+  }
+
+  /*  Style the nav toggle bars */
+  .nav-toggle div {
+    background-image: linear-gradient(to right,#7545d4, #52c6cb);
+    border-radius: 25px;
+    box-shadow: 0px 3px 13px rgba(0,0,0,.3);
+    height: 7px;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(.13,.24,.35,1.64);
+  }
+
+  /* Add space between the nav toggle bars */
+  .nav-toggle .bar-one, .nav-toggle .bar-two {
+    margin-bottom: 7px;
+  }
+
+  /* Change color of bar-one; Add shadow; Move down 14px and rotate 45 deg */
+  .nav-toggle.active .bar-one {
+    background-image: none;
+    background-color: #52c6cb;
+    box-shadow: 0px 3px 13px rgba(0,0,0,.4);
+    transform: translate(0, 14px) rotate(45deg);
+  }
+
+  /* Move bar-two out of the way; Hide background and shadow */
+  .nav-toggle.active .bar-two {
+    background-image: none;
+    box-shadow: none;
+    transform: translateX(-55px);
+  }
+
+  /* Change color of bar-three; Add shadow; Move up 14px and rotate -45 deg */
+  .nav-toggle.active .bar-three {
+    background-image: none;
+    background-color: #52c6cb;
+    box-shadow: 0px 3px 13px rgba(0,0,0,.4);
+    transform: translate(0,-14px) rotate(-45deg);
+  }
 
   /********************************** FOOTER ************************************/
   footer {
