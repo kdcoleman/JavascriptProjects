@@ -138,7 +138,7 @@ h1, h2 {
   select:focus {
     outline: none;
     border-color: #4c0b2d;
-    box-shadow: 0px 0px 3px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0px 0px 3px 3px rgba(157,24,94,.7);
     color: #000;
   }
 
@@ -170,7 +170,7 @@ h1, h2 {
     position: relative;
     padding: 0;
     margin: 0px auto;
-    overflow: visible;
+    overflow: hidden;
     display: block;
     text-align: center;
     border: 1px solid #000;
