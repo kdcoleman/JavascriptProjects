@@ -40,17 +40,31 @@ function calculateTotal(billAmount, tip, numGuests) {
 function displayTip() {
   billAmount = Number(document.getElementById('billAmount').value);
   tipPercentage = Number(document.getElementById('tipPercentage').value);
-  tip = calculateTip(billAmount, tipPercentage);
 
-  document.getElementById('tipAmount').innerHTML = "Tip Amount: $"+tip;
+  if (isNaN(billAmount)) {
+    window.alert('Wrong format for bill amount!');
+  }
+  else {
+    tip = calculateTip(billAmount, tipPercentage);
+    document.getElementById('tipAmount').innerHTML = "Tip Amount: $"+tip;
+  }
 }
 
 function displayTotal() {
   billAmount = Number(document.getElementById('billAmount').value);
   tipPercentage = Number(document.getElementById('tipPercentage').value);
   numGuests = Number(document.getElementById('numGuests').value);
-  tip = Number(calculateTip(billAmount, tipPercentage));
-  total = calculateTotal(billAmount, tip, numGuests);
 
-  document.getElementById('totalAmount').innerHTML = "Total Per Guest: $"+total;
+  if (isNaN(billAmount)) {
+    window.alert('Wrong format for bill amount!');
+  }
+  else if (isNaN(numGuests)) {
+    window.alert('Wrong format for number of guests!');
+  }
+  else {
+    tip = Number(calculateTip(billAmount, tipPercentage));
+    total = calculateTotal(billAmount, tip, numGuests);
+    document.getElementById('totalAmount').innerHTML = "Total Per Guest: $"+total;
+  }
+
 }
