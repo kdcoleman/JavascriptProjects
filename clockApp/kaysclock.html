@@ -21,22 +21,26 @@
         <h2 class="shadow" id="clockTitle"> What time is it?</h2>
         <h2 id="timeDisplay"></h2>
         <br><br>
-        <img src="clockImages/warpedClock.png" alt="A warped clock that's fading away">
+        <img id="clockImage" src="clockImages/warpedClock.png" alt="A warped clock that's fading away">
 
         <form>
           Minutes: <select id="timerMinutes" name="timerMinutes"></select>
           Seconds: <select id="timerSeconds" name="timerSeconds"></select>
         </form>
 
-        <button onclick="stopCurrentTime(); startTimer()">Start Timer</button>
+        <button onclick="showClockImage(); stopCurrentTime(); startTimer()">Start Timer</button>
         <button onclick="stopTimer()">Stop Timer</button>
         <br><br>
-        <button onclick="stopCurrentTime(); startStopwatch()">Start Stopwatch</button>
+        <button onclick="showClockImage(); stopCurrentTime(); startStopwatch()">Start Stopwatch</button>
         <button onclick="pauseStopwatch()">Pause Stopwatch</button>
         <button onclick="resetStopwatch()">Reset Stopwatch</button>
         <br><br>
-        <button class="large" onclick="stopTimer(); pauseStopwatch(); startCurrentTime()">
-          Current Time</button>
+        <button class="large" onclick="showClockImage(); stopTimer(); pauseStopwatch(); startCurrentTime()">
+          Current Time
+        </button><br>
+        <button class="large" onclick="stopCurrentTime(); stopTimer(); pauseStopwatch(); showPartyImage();">
+          Party Time
+        </button>
       </div>
 
 

@@ -3,6 +3,18 @@ Author: Kayla D. Coleman
 Author URI: github.com/kdcoleman
 */
 
+// Show Party Image when Party Time Button Clicked
+function showPartyImage() {
+  document.getElementById('clockImage').src = "clockImages/partyTime.jpg";
+  document.getElementById('clockTitle').innerHTML = "What time is it?";
+  document.getElementById('timeDisplay').innerHTML = "";
+}
+
+// Show Warped Clock when Party Time Button Clicked
+function showClockImage() {
+  document.getElementById('clockImage').src = "clockImages/warpedClock.png";
+}
+
 // Display Current Time Methods
 var currentTimeInterval;
 var timerInterval;
@@ -41,11 +53,12 @@ function addTimerOptions(elemId) {
 }
 
 // Display Timer Methods
+var timerRunning;
+
 function startTimer() {
   var mins = document.getElementById('timerMinutes').value;
   var secs = document.getElementById('timerSeconds').value;
   document.getElementById('clockTitle').innerHTML = "Timer";
-  timerInterval = setInterval(checkTime, 1000);
   function checkIfLessThan10() {
     mins = mins < 10 ? ("0" + mins).slice(-2) : mins;
     secs = secs < 10 ? ("0" + secs).slice(-2) : secs;
@@ -64,7 +77,17 @@ function startTimer() {
     else if (mins == 0 && secs == 0) {
       document.getElementById('timeDisplay').innerHTML = "Time's Up!";
       clearInterval(timerInterval);
+      timerRunning = false;
     }
+  }
+
+  // Clear timer interval and start a new one if already running
+  if (!timerRunning) {
+    timerInterval = setInterval(checkTime, 1000);
+    timerRunning = true;
+  } else {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(checkTime, 1000);
   }
 }
 
