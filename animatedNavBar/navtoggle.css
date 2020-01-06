@@ -91,6 +91,18 @@ h1, h2 {
     transition-duration: 200ms;
   }
 
+  /* Shake image when clicked */
+  img.stretch {
+    transform: scale(1.1,1.1);
+    transition-duration: 100ms;
+    transition-timing-function: linear;
+  }
+  img.shrink {
+    transform: scale(1,1);
+    transition-duration: 100ms;
+    transition-timing-function: linear;
+  }
+
   /* Side panels of nav bar */
   nav::before, nav::after {
     background-color: #7545d4;
