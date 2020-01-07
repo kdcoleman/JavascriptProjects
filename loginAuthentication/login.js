@@ -19,6 +19,7 @@ loginForm.elements.emailAddress.pattern = emailPattern;
 
 // Show login alert onclick of login link
 loginLink.addEventListener('click', function(){
+  signupAlert.classList.remove('active');
   loginAlert.classList.toggle('active');
 })
 
@@ -105,6 +106,7 @@ var signupForm = document.forms['signupForm'];
 
 // Show signup alert onclick of signup link
 signupLink.addEventListener('click', function(){
+  loginAlert.classList.remove('active');
   signupAlert.classList.toggle('active');
 })
 
