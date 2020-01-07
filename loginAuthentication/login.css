@@ -44,8 +44,14 @@ h1, h2 {
   h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    font-weight: 400;
-    color: #FFF;
+    font-weight: 500;
+    color: #AFAFAF;
+    text-shadow: 1px 1px 3px #8BCAF7;
+  }
+  h3.home {
+    position: absolute;
+    top: 5%;
+    left: 65%;
   }
   h4 {
     font-family: 'Roboto', sans-serif;
