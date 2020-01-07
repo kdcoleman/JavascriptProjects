@@ -117,7 +117,7 @@ input {
   width: 80%;
   padding-bottom: 5px;
   font-size: 16px;
-  color: #CCC;
+  color: #808080;
   text-align: left;
   outline: 0;
   border-width: 0 0 2px;
@@ -132,6 +132,17 @@ input:focus {
   border-color: #8BCAF7;
 }
 
+form span {
+  margin: 0;
+  padding: 0;
+  color: red;
+  font-size: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  display: block;
+  width: 100%;
+}
+
 /********************************* HEADER *************************************/
 header {
   padding: 0 15px;
@@ -140,7 +151,6 @@ header {
   clear: left;
   text-align: left;
   margin: 0px;
-  align-items: center;
 }
 
 /******************************* MAIN CONTENT *********************************/

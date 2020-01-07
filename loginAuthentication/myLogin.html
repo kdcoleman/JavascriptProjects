@@ -22,16 +22,21 @@
         <img src="loginImages/lakhtaCenter.jpg">
       </div>
 
+      <!-- LOGIN -->
       <div id="loginAlert" class="alert">
-        <div id="closeButton" class="close">
+        <div id="closeLogin" class="close">
           <div class="bar-one"></div>
           <div class="bar-two"></div>
         </div>
         <h2>Login</h2>
         <br><br>
-        <form>
-          <input id="email" type="text" placeholder="Email"><br><br>
-          <input id="password" type="text" placeholder="Password"><br>
+        <form id="loginForm">
+          <input id="emailAddress" type="email" placeholder="Email" required><br>
+          <span id="emailErrorMessage"></span>
+          <br><br>
+
+          <input id="passwd" type="password" minlength="8" placeholder="Password" required><br>
+          <span id="passwdErrorMessage"></span>
           <br><br>
         </form>
         <button id="loginButton" type="submit">Login</button>
