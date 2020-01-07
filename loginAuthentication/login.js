@@ -38,16 +38,11 @@ function validateEmail() {
 
   if (validityState.valueMissing) {
     input.setCustomValidity('Required');
-    loginEmailMsg.innerHTML  = "Required";
-  }
-  else if (validityState.typeMismatch) {
-    input.setCustomValidity('Email address is invalid');
-    loginEmailMsg.innerHTML  = "Email address is invalid";
-    loginForm.elements.emailAddress.value = "";
+    loginEmailMsg.innerHTML  = input.validationMessage;
   }
   else if (validityState.patternMismatch) {
     input.setCustomValidity('Email address is invalid');
-    loginEmailMsg.innerHTML  = "Email address is invalid";
+    loginEmailMsg.innerHTML  = input.validationMessage;
     loginForm.elements.emailAddress.value = "";
 
   }
@@ -60,11 +55,11 @@ function validatePassword() {
 
   if (validityState.valueMissing) {
     input.setCustomValidity('Required');
-    loginPasswdMsg.innerHTML = "Required";
+    loginPasswdMsg.innerHTML = input.validationMessage;
   }
   else if (validityState.tooShort) {
     input.setCustomValidity('Password must be at least 8 characters');
-    loginPasswdMsg.innerHTML = "Password must be at least 8 characters";
+    loginPasswdMsg.innerHTML = input.validationMessage;
     loginForm.elements.passwd.value = "";
   }
 }
