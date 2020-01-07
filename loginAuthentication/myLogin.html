@@ -14,7 +14,7 @@
         <h1>Kay's World</h1>
         <div class="rightside">
           <a id="loginLink" class="head" href="#loginAlert">Login</a>
-          <a id="signupLink" class="head" href="#">Signup</a>
+          <a id="signupLink" class="head" href="#signupAlert">Sign Up</a>
       </div>
       </header>
 
@@ -32,14 +32,42 @@
         <br><br>
         <form id="loginForm">
           <input id="emailAddress" type="email" placeholder="Email" required><br>
-          <span id="emailErrorMessage"></span>
+          <span id="loginEmailErrMsg"></span>
           <br><br>
 
           <input id="passwd" type="password" minlength="8" placeholder="Password" required><br>
-          <span id="passwdErrorMessage"></span>
+          <span id="loginPasswdErrMsg"></span>
           <br><br>
         </form>
         <button id="loginButton" type="submit">Login</button>
+      </div>
+
+      <!-- SIGNUP -->
+      <div id="signupAlert" class="alert">
+        <div id="closeSignup" class="close">
+          <div class="bar-one"></div>
+          <div class="bar-two"></div>
+        </div>
+        <h2>Sign Up</h2>
+        <br><br>
+        <form id="signupForm">
+          <input id="firstName" type="text" placeholder="First Name" required><br>
+          <span id="signupEmailErrMsg"></span>
+          <br><br>
+          <input id="lastName" type="text" placeholder="Last Name" required><br>
+          <span id="signupEmailErrMsg"></span>
+          <br><br>
+          <input id="emailAddress" type="email" placeholder="Email" required><br>
+          <span id="signupEmailErrMsg"></span>
+          <br><br>
+          <input id="passwd" type="password" minlength="8" placeholder="Password" required><br>
+          <span id="signupEmailErrMsg"></span>
+          <br><br>
+          <input id="confirmPasswd" type="password" minlength="8" placeholder="Confirm Password" required><br>
+          <span id="signupEmailErrMsg"></span>
+          <br><br>
+        </form>
+        <button id="signupButton" type="submit">Signup</button>
       </div>
 
 

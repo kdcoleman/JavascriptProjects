@@ -3,11 +3,12 @@ Author: Kayla D. Coleman
 Author URI: github.com/kdcoleman
 */
 
+// Login
 var loginLink = document.getElementById('loginLink');
 var loginAlert = document.getElementById('loginAlert');
-var closeButton = document.getElementById('closeLogin');
-var emailMsg = document.getElementById('emailErrorMessage');
-var passwdMsg = document.getElementById('passwdErrorMessage');
+var closeLogin = document.getElementById('closeLogin');
+var loginEmailMsg = document.getElementById('loginEmailErrMsg');
+var loginPasswdMsg = document.getElementById('loginPasswdErrMsg');
 var loginForm = document.forms['loginForm'];
 var emailPattern = "[a-z0-9._%+-]+@[a-z0-9.-]+(\.[a-z]{2,3})+$";
 // "[^\s@]+@[^\s@]+\.[^\s@]{2,3}$";
@@ -22,11 +23,11 @@ loginLink.addEventListener('click', function(){
 })
 
 // Close login alert onclick of close button
-closeButton.addEventListener('click', function(){
+closeLogin.addEventListener('click', function(){
   loginAlert.classList.toggle('active');
   loginForm.reset();
-  emailMsg.innerHTML = "";
-  passwdMsg.innerHTML = "";
+  loginEmailMsg.innerHTML = "";
+  loginPasswdMsg.innerHTML = "";
 })
 
 // Methods to validate email and password
@@ -36,16 +37,16 @@ function validateEmail() {
 
   if (validityState.valueMissing) {
     input.setCustomValidity('Required');
-    emailMsg.innerHTML  = "Required";
+    loginEmailMsg.innerHTML  = "Required";
   }
   else if (validityState.typeMismatch) {
     input.setCustomValidity('Email address is invalid');
-    emailMsg.innerHTML  = "Email address is invalid";
+    loginEmailMsg.innerHTML  = "Email address is invalid";
     loginForm.elements.emailAddress.value = "";
   }
   else if (validityState.patternMismatch) {
     input.setCustomValidity('Email address is invalid');
-    emailMsg.innerHTML  = "Email address is invalid";
+    loginEmailMsg.innerHTML  = "Email address is invalid";
     loginForm.elements.emailAddress.value = "";
 
   }
@@ -58,19 +59,19 @@ function validatePassword() {
 
   if (validityState.valueMissing) {
     input.setCustomValidity('Required');
-    passwdMsg.innerHTML = "Required";
+    loginPasswdMsg.innerHTML = "Required";
   }
   else if (validityState.tooShort) {
     input.setCustomValidity('Password must be at least 8 characters');
-    passwdMsg.innerHTML = "Password must be at least 8 characters";
+    loginPasswdMsg.innerHTML = "Password must be at least 8 characters";
     loginForm.elements.passwd.value = "";
   }
 }
 
 // Validate credentials onclick of login button on alert
 document.getElementById('loginButton').addEventListener('click', function(){
-  emailMsg.innerHTML = "";
-  passwdMsg.innerHTML = "";
+  loginEmailMsg.innerHTML = "";
+  loginPasswdMsg.innerHTML = "";
   validateEmail();
   validatePassword();
 })
@@ -78,8 +79,8 @@ document.getElementById('loginButton').addEventListener('click', function(){
 // Validate credentials when press enter in input fields
 document.getElementById('emailAddress').onkeypress = function (event) {
   if (event.keyCode == 13) {
-    emailMsg.innerHTML = "";
-    passwdMsg.innerHTML = "";
+    loginEmailMsg.innerHTML = "";
+    loginPasswdMsg.innerHTML = "";
     validateEmail();
     validatePassword();
   }
@@ -87,9 +88,30 @@ document.getElementById('emailAddress').onkeypress = function (event) {
 
 document.getElementById('passwd').onkeypress = function (event) {
   if (event.keyCode == 13) {
-    emailMsg.innerHTML = "";
-    passwdMsg.innerHTML = "";
+    loginEmailMsg.innerHTML = "";
+    loginPasswdMsg.innerHTML = "";
     validateEmail();
     validatePassword();
   }
 }
+
+// Signup
+var signupLink = document.getElementById('signupLink');
+var signupAlert = document.getElementById('signupAlert');
+var closeLogin = document.getElementById('closeSignup');
+var signupEmailMsg = document.getElementById('signupEmailErrMsg');
+var signupPasswdMsg = document.getElementById('signupPasswdErrMsg');
+var signupForm = document.forms['signupForm'];
+
+// Show signup alert onclick of signup link
+signupLink.addEventListener('click', function(){
+  signupAlert.classList.toggle('active');
+})
+
+// Close signup alert onclick of close button
+closeSignup.addEventListener('click', function(){
+  signupAlert.classList.toggle('active');
+  signupForm.reset();
+  signupEmailMsg.innerHTML = "";
+  signupPasswdMsg.innerHTML = "";
+})
