@@ -27,50 +27,63 @@ loginLink.addEventListener('click', function(){
 closeLogin.addEventListener('click', function(){
   loginAlert.classList.toggle('active');
   loginForm.reset();
-  loginEmailMsg.innerHTML = "";
-  loginPasswdMsg.innerHTML = "";
+  updateMessage(loginEmailMsg, "");
+  updateMessage(loginPasswdMsg, "");
 })
 
-// Methods to validate email and password
-function validateEmail() {
-  var input =  document.getElementById('emailAddress');
-  var validityState = input.validity;
+
+// Update validation message method
+function updateMessage(element, value) {
+  element.innerHTML = value;
+}
+
+
+// Email validation method
+function validateEmail(inputElement, messageElement, formElement) {
+  var validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
-    input.setCustomValidity('Required');
-    loginEmailMsg.innerHTML  = input.validationMessage;
+    inputElement.setCustomValidity('Required');
+    updateMessage(messageElement, inputElement.validationMessage);
   }
   else if (validityState.patternMismatch) {
-    input.setCustomValidity('Email address is invalid');
-    loginEmailMsg.innerHTML  = input.validationMessage;
-    loginForm.elements.emailAddress.value = "";
+    inputElement.setCustomValidity('Email address is invalid');
+    updateMessage(messageElement, inputElement.validationMessage);
+    formElement.elements.emailAddress.value = "";
 
   }
 
 }
 
-function validatePassword() {
-  var input =  document.getElementById('passwd');
-  var validityState = input.validity;
+
+// Password validation method
+function validatePassword(inputElement, messageElement, formElement) {
+  var validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
-    input.setCustomValidity('Required');
-    loginPasswdMsg.innerHTML = input.validationMessage;
+    inputElement.setCustomValidity('Required');
+    updateMessage(messageElement, inputElement.validationMessage);
   }
   else if (validityState.tooShort) {
-    input.setCustomValidity('Password must be at least 8 characters');
-    loginPasswdMsg.innerHTML = input.validationMessage;
-    loginForm.elements.passwd.value = "";
+    inputElement.setCustomValidity('Password must be at least 8 characters');
+    updateMessage(messageElement, inputElement.validationMessage);
+    formElement.elements.passwd.value = "";
   }
 }
 
-// Method to validate the login form
+
+// Login form validation method
 function validateLoginForm() {
-  loginEmailMsg.innerHTML = "";
-  loginPasswdMsg.innerHTML = "";
-  validateEmail();
-  validatePassword();
+  emailInput =  document.getElementById('emailAddress');
+  passwdInput =  document.getElementById('passwd');
+
+  updateMessage(loginEmailMsg, "");
+  updateMessage(loginPasswdMsg, "");
+
+  validateEmail(emailInput, loginEmailMsg, loginForm);
+  validatePassword(passwdInput, loginPasswdMsg, loginForm);
 }
+
 
 // Validate credentials onclick of login button on login alert
 document.getElementById('loginButton').addEventListener('click', validateLoginForm);
@@ -81,20 +94,29 @@ document.getElementById('emailAddress').onkeypress = function (event) {
     validateLoginForm();
   }
 }
-
 document.getElementById('passwd').onkeypress = function (event) {
   if (event.keyCode == 13) {
     validateLoginForm();
   }
 }
 
+
+
 // SIGN UP
 var signupLink = document.getElementById('signupLink');
 var signupAlert = document.getElementById('signupAlert');
 var closeLogin = document.getElementById('closeSignup');
+var firstNameMsg = document.getElementById('signupFirstNameErrMsg');
+var lastNameMsg = document.getElementById('signupLastNameErrMsg');
 var signupEmailMsg = document.getElementById('signupEmailErrMsg');
 var signupPasswdMsg = document.getElementById('signupPasswdErrMsg');
+var confirmPasswdMsg = document.getElementById('signupConfirmPasswdErrMsg');
 var signupForm = document.forms['signupForm'];
+var namePattern = "[A-Za-z-\']+";
+
+// Set first and last name pattern
+signupForm.elements.firstName.pattern = namePattern;
+signupForm.elements.lastName.pattern = namePattern;
 
 // Show signup alert onclick of signup link
 signupLink.addEventListener('click', function(){
@@ -106,6 +128,103 @@ signupLink.addEventListener('click', function(){
 closeSignup.addEventListener('click', function(){
   signupAlert.classList.toggle('active');
   signupForm.reset();
-  signupEmailMsg.innerHTML = "";
-  signupPasswdMsg.innerHTML = "";
+  updateMessage(firstNameMsg, "");
+  updateMessage(lastNameMsg, "");
+  updateMessage(signupEmailMsg, "");
+  updateMessage(signupPasswdMsg, "");
 })
+
+
+// First name validation method
+function validateFirstName(inputElement, messageElement, formElement) {
+  var validityState = inputElement.validity;
+
+  if (validityState.valueMissing) {
+    inputElement.setCustomValidity('Required');
+    updateMessage(messageElement, inputElement.validationMessage);
+  }
+  else if (validityState.patternMismatch) {
+    inputElement.setCustomValidity('First name must not contain (!@#$%^&*?.,_)');
+    updateMessage(messageElement, inputElement.validationMessage);
+    formElement.elements.firstName.value = "";
+  }
+}
+
+
+// Last name validation method
+function validateLastName(inputElement, messageElement, formElement) {
+  var validityState = inputElement.validity;
+
+  if (validityState.valueMissing) {
+    inputElement.setCustomValidity('Required');
+    updateMessage(messageElement, inputElement.validationMessage);
+  }
+  else if (validityState.patternMismatch) {
+    inputElement.setCustomValidity('Last name must only contain letters');
+    updateMessage(messageElement, inputElement.validationMessage);
+    formElement.elements.lastName.value = "";
+  }
+}
+
+
+// Confirm password method
+function confirmPassword(inputElement, inputElementMatch, messageElement, formElement) {
+  var validityState = inputElement.validity;
+
+  if (validityState.valueMissing) {
+    inputElement.setCustomValidity('Required');
+    updateMessage(messageElement, inputElement.validationMessage);
+  }
+  else if (inputElement.value != inputElementMatch.value) {
+    inputElement.setCustomValidity('Does not match password');
+    updateMessage(messageElement, inputElement.validationMessage);
+    formElement.elements.lastName.value = "";
+  }
+}
+
+
+// Signup form validation method
+function validateSignupForm() {
+  firstNameInput =  document.getElementById('firstName');
+  lastNameInput =  document.getElementById('lastName');
+  signupEmailInput = document.getElementById('signupEmail');
+  signupPasswdInput = document.getElementById('signupPasswd');
+  confirmPasswdInput = document.getElementById('confirmPasswd');
+
+  updateMessage(firstNameMsg, "");
+  updateMessage(lastNameMsg, "");
+  updateMessage(signupEmailMsg, "");
+  updateMessage(signupPasswdMsg, "");
+  updateMessage(confirmPasswdMsg, "");
+
+  validateFirstName(firstNameInput, firstNameMsg, signupForm);
+  validateLastName(lastNameInput, lastNameMsg, signupForm);
+  validateEmail(signupEmailInput, signupEmailMsg, signupForm);
+  validatePassword(signupPasswdInput, signupPasswdMsg, signupForm);
+  confirmPassword(confirmPasswdInput, signupPasswdInput, confirmPasswdMsg, signupForm);
+}
+
+// Validate credentials onclick of signup button on signup alert
+document.getElementById('signupButton').addEventListener('click', validateSignupForm);
+
+// Validate credentials when press enter in input fields on signup alert
+document.getElementById('firstName').onkeypress = function (event) {
+  if (event.keyCode == 13) {
+    validateSignupForm();
+  }
+}
+document.getElementById('lastName').onkeypress = function (event) {
+  if (event.keyCode == 13) {
+    validateSignupForm();
+  }
+}
+document.getElementById('signupEmail').onkeypress = function (event) {
+  if (event.keyCode == 13) {
+    validateSignupForm();
+  }
+}
+document.getElementById('signupPasswd').onkeypress = function (event) {
+  if (event.keyCode == 13) {
+    validateSignupForm();
+  }
+}
