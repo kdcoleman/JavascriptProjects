@@ -3,7 +3,7 @@ Author: Kayla D. Coleman
 Author URI: github.com/kdcoleman
 */
 
-// Login
+// LOGIN
 var loginLink = document.getElementById('loginLink');
 var loginAlert = document.getElementById('loginAlert');
 var closeLogin = document.getElementById('closeLogin');
@@ -69,34 +69,31 @@ function validatePassword() {
   }
 }
 
-// Validate credentials onclick of login button on alert
-document.getElementById('loginButton').addEventListener('click', function(){
+// Method to validate the login form
+function validateLoginForm() {
   loginEmailMsg.innerHTML = "";
   loginPasswdMsg.innerHTML = "";
   validateEmail();
   validatePassword();
-})
+}
 
-// Validate credentials when press enter in input fields
+// Validate credentials onclick of login button on login alert
+document.getElementById('loginButton').addEventListener('click', validateLoginForm);
+
+// Validate credentials when press enter in input fields on login alert
 document.getElementById('emailAddress').onkeypress = function (event) {
   if (event.keyCode == 13) {
-    loginEmailMsg.innerHTML = "";
-    loginPasswdMsg.innerHTML = "";
-    validateEmail();
-    validatePassword();
+    validateLoginForm();
   }
 }
 
 document.getElementById('passwd').onkeypress = function (event) {
   if (event.keyCode == 13) {
-    loginEmailMsg.innerHTML = "";
-    loginPasswdMsg.innerHTML = "";
-    validateEmail();
-    validatePassword();
+    validateLoginForm();
   }
 }
 
-// Signup
+// SIGN UP
 var signupLink = document.getElementById('signupLink');
 var signupAlert = document.getElementById('signupAlert');
 var closeLogin = document.getElementById('closeSignup');
