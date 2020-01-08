@@ -13,6 +13,8 @@ var loginPasswdMsg = document.getElementById('loginPasswdErrMsg');
 var loginForm = document.forms['loginForm'];
 var emailPattern = "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+([\.-]?[A-Za-z0-9!#$%&'*+/=?^_`{|}~]+)*@[A-Za-z0-9]+([\-]?[A-Z-a-z0-9]+)*(\.[A-Za-z]{2,3})+";
 
+// Mock data for an authenticated user
+var returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainthecity.com", password: "H@ppyG!rl"};
 
 // Set email pattern
 loginForm.elements.emailAddress.pattern = emailPattern;
@@ -104,8 +106,17 @@ function validateLoginForm() {
   emailValidity = validateEmail(emailInput, loginEmailMsg, loginForm);
   passwordValidity = validatePassword(passwdInput, loginPasswdMsg, loginForm);
 
+  // Login authentication
   if (emailValidity && passwordValidity) {
-    return true;
+    if (emailInput == returningUser.email && passwdInput == returningUser.password){
+      return true;
+    } else if (emailInput.value != returningUser.email) {
+      updateMessage(loginEmailMsg, "Email address not found");
+      return false;
+    } else if (passwdInput.value != returningUser.password) {
+      updateMessage(loginPasswdMsg, "Incorrect password");
+      return false;
+    }
   } else {
     return false;
   }

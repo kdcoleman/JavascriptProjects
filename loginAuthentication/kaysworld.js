@@ -11,8 +11,11 @@ let firstName = getUrlVariable('firstName') ? getUrlVariable('firstName') : null
 let lastName = getUrlVariable('lastName') ? getUrlVariable('lastName') : null;
 let email = getUrlVariable('emailAddress') ? getUrlVariable('emailAddress'): getUrlVariable('signupEmail');
 let password = getUrlVariable('passwd') ? getUrlVariable('passwd'):getUrlVariable('signupPasswd');
-var user = {firstName: firstName, lastName: lastName, email: email, password: password};
-console.log(user);
+var newUser = {firstName: firstName, lastName: lastName, email: email, password: password};
+console.log(newUser);
+
+// Mock data for an authenticated user
+var returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainthecity.com", password: "H@ppyG!rl"};
 
 // Close welcome alert onclick of close button
 closeWelcome.addEventListener('click', function(){
@@ -47,13 +50,14 @@ function updateMessage(element, value) {
 }
 
 function showWelcomeMessage() {
-  if (firstName) {
-    newUserMsg = "Welcome " + firstName +
-    "! We're so glad you decided to explore the land of Kay. We sent a confirmation email to " + email +
+  if (newUser.firstName) {
+    newUserMsg = "Welcome " + newUser.firstName +
+    "! We're so glad you decided to explore the land of Kay. We sent a confirmation email to " + newUser.email +
     ". <br><br> Please confirm your account."
-    updateMessage(welcomeMsg,newUserMsg);
-  } else if (email){
-    returningUserMsg = "Welcome back! Check out what's new since your last time here. Happy exploring!"
+    updateMessage(welcomeMsg, newUserMsg);
+  } else if (returningUser.firstName){
+    returningUserMsg = "Welcome back " + returningUser.firstName +
+    "! Check out what's new since your last time here. Happy exploring!"
     updateMessage(welcomeMsg,returningUserMsg);
   }
 }
