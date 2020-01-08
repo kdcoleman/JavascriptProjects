@@ -102,6 +102,10 @@ document.getElementById('passwd').onkeypress = function (event) {
   }
 }
 
+//URL to pass the login form data
+fileURL = "kaysWorld.html";
+loginForm.action = fileURL;
+
 
 // SIGN UP
 var signupLink = document.getElementById('signupLink');
@@ -230,3 +234,7 @@ document.getElementById('signupPasswd').onkeypress = function (event) {
     validateSignupForm();
   }
 }
+
+//URL to pass the signup form data
+fileURL = "kaysWorld.html";
+signupForm.action = fileURL;

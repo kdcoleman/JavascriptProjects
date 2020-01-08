@@ -31,16 +31,15 @@
         </div>
         <h2>Login</h2>
         <br><br>
-        <form id="loginForm">
-          <input id="emailAddress" type="email" placeholder="Email" required><br>
+        <form id="loginForm" method="get">
+          <input id="emailAddress" name="emailAddress" type="email" placeholder="Email" required><br>
           <span id="loginEmailErrMsg"></span>
           <br><br>
-
-          <input id="passwd" type="password" minlength="8" placeholder="Password" required><br>
+          <input id="passwd" name="passwd"type="password" minlength="8" placeholder="Password" required><br>
           <span id="loginPasswdErrMsg"></span>
           <br><br>
+          <button id="loginButton" type="submit">Login</button>
         </form>
-        <button id="loginButton" type="submit">Login</button>
       </div>
 
       <!-- SIGNUP -->
@@ -51,24 +50,24 @@
         </div>
         <h2>Sign Up</h2>
         <br><br>
-        <form id="signupForm">
-          <input id="firstName" type="text" placeholder="First Name" required><br>
+        <form id="signupForm" method="get">
+          <input id="firstName" name="firstName" type="text" placeholder="First Name" required><br>
           <span id="signupFirstNameErrMsg"></span>
           <br><br>
-          <input id="lastName" type="text" placeholder="Last Name" required><br>
+          <input id="lastName" name="lastName" type="text" placeholder="Last Name" required><br>
           <span id="signupLastNameErrMsg"></span>
           <br><br>
-          <input id="signupEmail" type="email" placeholder="Email" required><br>
+          <input id="signupEmail" name="signupEmail" type="email" placeholder="Email" required><br>
           <span id="signupEmailErrMsg"></span>
           <br><br>
-          <input id="signupPasswd" type="password" minlength="8" placeholder="Password" required><br>
+          <input id="signupPasswd" name="signupPasswd" type="password" minlength="8" placeholder="Password" required><br>
           <span id="signupPasswdErrMsg"></span>
           <br><br>
-          <input id="confirmPasswd" type="password" minlength="8" placeholder="Confirm Password" required><br>
+          <input id="confirmPasswd" name="confirmPasswd" type="password" minlength="8" placeholder="Confirm Password" required><br>
           <span id="signupConfirmPasswdErrMsg"></span>
           <br><br>
+          <button id="signupButton" type="submit">Sign up</button>
         </form>
-        <button id="signupButton" type="submit">Sign up</button>
       </div>
 
 
