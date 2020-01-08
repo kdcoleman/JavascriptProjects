@@ -32,3 +32,13 @@ Creates and animates a navigation toggle icon that expands and collapses an anim
 * Custom "pop" animation when home image is clicked
 * Changes the color of the navigation icon on toggle
 
+## Login Authentication
+
+#### Original project:
+Creates a login authentication bar
+
+#### My project:
+* Custom forms for login and signup
+* Custom form validation for login and signup
+* Login and signup authentication for mock user
+
