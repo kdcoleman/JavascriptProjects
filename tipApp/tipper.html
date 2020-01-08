@@ -9,7 +9,7 @@
   </head>
 
   <!-- BODY CONTENT -->
-  <body onload="addPerentageOptions('tipPercentage')">
+  <body id="mainBody">
     <div class="container">
 
       <header></header>
@@ -19,7 +19,7 @@
           <h1 id="center">TIP CALCULATOR</h1>
         </div>
 
-        <form>
+        <form id="tipForm">
           How much is the bill? <br>
           $ <input type="text" placeholder="Bill Amount" id="billAmount">
           <br><br>
@@ -33,7 +33,7 @@
         <div class="section bottom">
           <h2 id="tipAmount">Tip Amount: $0.00</h2><br>
           <h2 id="totalAmount">Total Per Guest: $0.00</h2>
-          <button onclick="displayTip(); displayTotal()">Calculate</button>
+          <button id="calculate">Calculate</button>
         </div>
 
     </div>

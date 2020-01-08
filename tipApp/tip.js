@@ -3,6 +3,11 @@ Author: Kayla D. Coleman
 Author URI: github.com/kdcoleman
 */
 
+var calculateButton = document.getElementById('calculate');
+var tipPercentage = document.getElementById('tipPercentage');
+var tipForm = document.getElementById('tipForm');
+var bodyElement = document.getElementById('mainBody');
+
 // Set Dropdown Options for Tip Percentage
 function setPercentageOptions() {
   df = document.createDocumentFragment();
@@ -11,18 +16,23 @@ function setPercentageOptions() {
     option.value = i;
     option.appendChild(document.createTextNode(i+"%"));
     df.appendChild(option);
-    if (i==15) {
-      option.selected=i;
+    if (i == 15) {
+      option.selected = i;
     }
   }
   return df
 }
 
 // Add Dropdown Options to Element
-function addPerentageOptions(elemId) {
+function addPercentageOptions(element) {
   docf = setPercentageOptions();
-  document.getElementById(elemId).appendChild(docf);
+  element.appendChild(docf);
 }
+
+// Add percentage options when body loads
+bodyElement.onload = function() {
+  addPercentageOptions(tipPercentage);
+};
 
 // Calculate Tip
 function calculateTip(billAmount, tipPercentage) {
@@ -68,6 +78,12 @@ function displayTotal() {
   }
 
 }
+
+// Display tip and total when calculate button clicked
+calculateButton.addEventListener('click', function(){
+  displayTip();
+  displayTotal();
+});
 
 // Display tip and total when press enter in input fields
 document.getElementById('billAmount').onkeypress = function (event) {
