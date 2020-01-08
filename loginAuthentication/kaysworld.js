@@ -12,7 +12,6 @@ let lastName = getUrlVariable('lastName') ? getUrlVariable('lastName') : null;
 let email = getUrlVariable('emailAddress') ? getUrlVariable('emailAddress'): getUrlVariable('signupEmail');
 let password = getUrlVariable('passwd') ? getUrlVariable('passwd'):getUrlVariable('signupPasswd');
 var newUser = {firstName: firstName, lastName: lastName, email: email, password: password};
-console.log(newUser);
 
 // Mock data for an authenticated user
 var returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainthecity.com", password: "H@ppyG!rl"};
