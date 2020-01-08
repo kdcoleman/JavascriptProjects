@@ -268,7 +268,12 @@ function validateSignupForm() {
   confirmValidity = confirmPassword(confirmPasswdInput, signupPasswdInput, confirmPasswdMsg, signupForm);
 
   if (firstNameValidity && lastNameValidity && emailValidity && passwordValidity && confirmValidity) {
-    return true;
+    if (signupEmailInput.value != returningUser.email) {
+      return true;
+    } else {
+      updateMessage(signupEmailMsg, "Sorry this email is already in use");
+      return false;
+    }
   } else {
     return false;
   }
