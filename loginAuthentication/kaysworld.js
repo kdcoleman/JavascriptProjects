@@ -7,9 +7,12 @@ Author URI: github.com/kdcoleman
 var welcomeAlert = document.getElementById('welcomeAlert');
 var welcomeMsg = document.getElementById('welcomeMsg');
 var closeWelcome = document.getElementById('closeWelcome');
-let emailAddress = getUrlVariable('emailAddress');
-let firstName = getUrlVariable('firstName');
-let signupEmail = getUrlVariable('signupEmail');
+let firstName = getUrlVariable('firstName') ? getUrlVariable('firstName') : null;
+let lastName = getUrlVariable('lastName') ? getUrlVariable('lastName') : null;
+let email = getUrlVariable('emailAddress') ? getUrlVariable('emailAddress'): getUrlVariable('signupEmail');
+let password = getUrlVariable('passwd') ? getUrlVariable('passwd'):getUrlVariable('signupPasswd');
+var user = {firstName: firstName, lastName: lastName, email: email, password: password};
+console.log(user);
 
 // Close welcome alert onclick of close button
 closeWelcome.addEventListener('click', function(){
@@ -46,10 +49,10 @@ function updateMessage(element, value) {
 function showWelcomeMessage() {
   if (firstName) {
     newUserMsg = "Welcome " + firstName +
-    "! We're so glad you decided to explore the land of Kay. We sent a confirmation email to " + signupEmail +
+    "! We're so glad you decided to explore the land of Kay. We sent a confirmation email to " + email +
     ". <br><br> Please confirm your account."
     updateMessage(welcomeMsg,newUserMsg);
-  } else if (emailAddress){
+  } else if (email){
     returningUserMsg = "Welcome back! Check out what's new since your last time here. Happy exploring!"
     updateMessage(welcomeMsg,returningUserMsg);
   }
