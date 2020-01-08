@@ -10,9 +10,8 @@ var closeLogin = document.getElementById('closeLogin');
 var loginEmailMsg = document.getElementById('loginEmailErrMsg');
 var loginPasswdMsg = document.getElementById('loginPasswdErrMsg');
 var loginForm = document.forms['loginForm'];
-var emailPattern = "[a-z0-9._%+-]+@[a-z0-9.-]+(\.[a-z]{2,3})+$";
-// "[^\s@]+@[^\s@]+\.[^\s@]{2,3}$";
-// "[a-z0-9._%+-]+@[a-z0-9.-]+(\.[a-z]{2,3})+$";
+var emailPattern = "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+([\.-]?[A-Za-z0-9!#$%&'*+/=?^_`{|}~]+)*@[A-Za-z0-9]+([\-]?[A-Z-a-z0-9]+)*(\.[A-Za-z]{2,3})+";
+
 
 // Set email pattern
 loginForm.elements.emailAddress.pattern = emailPattern;
@@ -46,11 +45,14 @@ function validateEmail(inputElement, messageElement, formElement) {
     inputElement.setCustomValidity('Required');
     updateMessage(messageElement, inputElement.validationMessage);
   }
+  else if (validityState.typeMismatch) {
+    inputElement.setCustomValidity('Email must be in the format: you@example.com');
+    updateMessage(messageElement, inputElement.validationMessage);
+  }
   else if (validityState.patternMismatch) {
     inputElement.setCustomValidity('Email address is invalid');
     updateMessage(messageElement, inputElement.validationMessage);
     formElement.elements.emailAddress.value = "";
-
   }
 
 }
@@ -99,7 +101,6 @@ document.getElementById('passwd').onkeypress = function (event) {
     validateLoginForm();
   }
 }
-
 
 
 // SIGN UP
@@ -203,6 +204,7 @@ function validateSignupForm() {
   validatePassword(signupPasswdInput, signupPasswdMsg, signupForm);
   confirmPassword(confirmPasswdInput, signupPasswdInput, confirmPasswdMsg, signupForm);
 }
+
 
 // Validate credentials onclick of signup button on signup alert
 document.getElementById('signupButton').addEventListener('click', validateSignupForm);
