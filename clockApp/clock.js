@@ -98,6 +98,7 @@ function stopCurrentTime() {
 
 // TIMER METHODS
 var timerRunning;
+var hrs;
 var mins;
 var secs;
 
@@ -121,23 +122,30 @@ function addTimerOptions(elemId, min, max) {
 
 // Display how much time is left
 function displayTimeLeft() {
+  hrs = hrs < 10 ? ("0" + hrs).slice(-2) : hrs;
   mins = mins < 10 ? ("0" + mins).slice(-2) : mins;
   secs = secs < 10 ? ("0" + secs).slice(-2) : secs;
-  timeDisplay.innerHTML= mins+":"+secs;
+  timeDisplay.innerHTML= hrs+":"+mins+":"+secs;
 }
 
 // Check how much time is left
 function checkTimeLeft() {
-  if (mins >= 0 && secs > 0) {
+  if (hrs >= 0 && mins >= 0 && secs > 0) {
     displayTimeLeft();
     secs--;
   }
-  else if (mins > 0 && secs == 0) {
+  else if (hrs >= 0 && mins > 0 && secs == 0) {
     displayTimeLeft();
     mins--;
     secs = 59;
   }
-  else if (mins == 0 && secs == 0) {
+  else if (hrs > 0 && mins == 0 && secs == 0) {
+    displayTimeLeft();
+    hrs--;
+    mins = 59;
+    secs = 59;
+  }
+  else if (hrs == 0 && mins == 0 && secs == 0) {
     timeDisplay.innerHTML = "Time's Up!";
     clearInterval(timerInterval);
     timerRunning = false;
@@ -145,6 +153,7 @@ function checkTimeLeft() {
 }
 
 function startTimer() {
+  hrs = document.getElementById('timerHours').value;
   mins = document.getElementById('timerMinutes').value;
   secs = document.getElementById('timerSeconds').value;
   checkTimeLeft();
