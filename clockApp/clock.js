@@ -19,6 +19,7 @@ var timeDisplay = document.getElementById('timeDisplay');
 bodyElement.onload = function() {
   displayCurrentTime();
   startCurrentTime();
+  addTimerOptions('timerHours');
   addTimerOptions('timerMinutes');
   addTimerOptions('timerSeconds');
 };
