@@ -97,6 +97,8 @@ function stopCurrentTime() {
 
 // TIMER METHODS
 var timerRunning;
+var mins;
+var secs;
 
 // Set Dropdown Options for Timer
 function setTimerOptions() {
@@ -116,40 +118,44 @@ function addTimerOptions(elemId) {
   document.getElementById(elemId).appendChild(docf);
 }
 
+// Display how much time is left
+function displayTimeLeft() {
+  mins = mins < 10 ? ("0" + mins).slice(-2) : mins;
+  secs = secs < 10 ? ("0" + secs).slice(-2) : secs;
+  timeDisplay.innerHTML= mins+":"+secs;
+}
+
+// Check how much time is left
+function checkTimeLeft() {
+  if (mins >= 0 && secs > 0) {
+    displayTimeLeft();
+    secs--;
+  }
+  else if (mins > 0 && secs == 0) {
+    displayTimeLeft();
+    mins--;
+    secs = 59;
+  }
+  else if (mins == 0 && secs == 0) {
+    timeDisplay.innerHTML = "Time's Up!";
+    clearInterval(timerInterval);
+    timerRunning = false;
+  }
+}
 
 function startTimer() {
-  var mins = document.getElementById('timerMinutes').value;
-  var secs = document.getElementById('timerSeconds').value;
+  mins = document.getElementById('timerMinutes').value;
+  secs = document.getElementById('timerSeconds').value;
+  checkTimeLeft();
   clockTitle.innerHTML = "Timer";
-  function checkIfLessThan10() {
-    mins = mins < 10 ? ("0" + mins).slice(-2) : mins;
-    secs = secs < 10 ? ("0" + secs).slice(-2) : secs;
-  }
-  function checkTime() {
-    checkIfLessThan10();
-    if (mins >= 0 && secs > 0) {
-      timeDisplay.innerHTML= mins+":"+secs;
-      secs--;
-    }
-    else if (mins > 0 && secs == 0) {
-      timeDisplay.innerHTML= mins+":"+secs;
-      mins--;
-      secs = 59;
-    }
-    else if (mins == 0 && secs == 0) {
-      timeDisplay.innerHTML = "Time's Up!";
-      clearInterval(timerInterval);
-      timerRunning = false;
-    }
-  }
 
   // Clear timer interval and start a new one if already running
   if (!timerRunning) {
-    timerInterval = setInterval(checkTime, 1000);
+    timerInterval = setInterval(checkTimeLeft, 1000);
     timerRunning = true;
   } else {
     clearInterval(timerInterval);
-    timerInterval = setInterval(checkTime, 1000);
+    timerInterval = setInterval(checkTimeLeft, 1000);
   }
 }
 
