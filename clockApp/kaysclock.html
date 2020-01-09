@@ -9,8 +9,7 @@
   </head>
 
   <!-- BODY CONTENT -->
-  <body onload="displayCurrentTime(); startCurrentTime();
-  addTimerOptions('timerMinutes'); addTimerOptions('timerSeconds')">
+  <body id="mainBody">
     <div class="container">
 
       <header>
@@ -28,21 +27,20 @@
           Seconds: <select id="timerSeconds" name="timerSeconds"></select>
         </form>
 
-        <button onclick="showClockImage(); stopCurrentTime(); startTimer()">Start Timer</button>
-        <button onclick="stopTimer()">Stop Timer</button>
+        <button id="startTimer">Start Timer</button>
+        <button id="stopTimer">Stop Timer</button>
         <br><br>
-        <button onclick="showClockImage(); stopCurrentTime(); startStopwatch()">Start Stopwatch</button>
-        <button onclick="pauseStopwatch()">Pause Stopwatch</button>
-        <button onclick="resetStopwatch()">Reset Stopwatch</button>
+        <button id="startStopwatch">Start Stopwatch</button>
+        <button id="pauseStopwatch">Pause Stopwatch</button>
+        <button id="resetStopwatch">Reset Stopwatch</button>
         <br><br>
-        <button class="large" onclick="showClockImage(); stopTimer(); pauseStopwatch(); startCurrentTime()">
+        <button id="currentTime" class="large">
           Current Time
         </button><br>
-        <button class="large" onclick="stopCurrentTime(); stopTimer(); pauseStopwatch(); showPartyImage();">
+        <button id="partyTime" class="large">
           Party Time
         </button>
       </div>
-
 
     </div>
 

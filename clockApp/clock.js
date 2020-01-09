@@ -3,11 +3,72 @@ Author: Kayla D. Coleman
 Author URI: github.com/kdcoleman
 */
 
+var bodyElement = document.getElementById('mainBody');
+var startTimerElement = document.getElementById('startTimer');
+var stopTimerElement = document.getElementById('stopTimer');
+var startStopwatchElement = document.getElementById('startStopwatch');
+var pauseStopwatchElement = document.getElementById('pauseStopwatch');
+var resetStopwatchElement = document.getElementById('resetStopwatch');
+var currentTimeElement = document.getElementById('currentTime');
+var partyTimeElement = document.getElementById('partyTime');
+var clockImage = document.getElementById('clockImage');
+var clockTitle = document.getElementById('clockTitle');
+var timeDisplay = document.getElementById('timeDisplay');
+
+// Show current time and add timer options on load
+bodyElement.onload = function() {
+  displayCurrentTime();
+  startCurrentTime();
+  addTimerOptions('timerMinutes');
+  addTimerOptions('timerSeconds');
+};
+
+// Add onclick event listeners for time buttons
+startTimerElement.addEventListener('click', function(){
+  showClockImage();
+  stopCurrentTime();
+  startTimer();
+});
+
+stopTimerElement.addEventListener('click', function(){
+  stopTimer();
+});
+
+startStopwatchElement.addEventListener('click', function(){
+  showClockImage();
+  stopCurrentTime();
+  stopTimer();
+  startStopwatch();
+});
+
+pauseStopwatchElement.addEventListener('click', function(){
+  pauseStopwatch();
+});
+
+resetStopwatchElement.addEventListener('click', function(){
+  resetStopwatch();
+});
+
+currentTimeElement.addEventListener('click', function(){
+  showClockImage();
+  stopTimer();
+  pauseStopwatch();
+  startCurrentTime();
+});
+
+partyTimeElement.addEventListener('click', function(){
+  stopCurrentTime();
+  stopTimer();
+  pauseStopwatch();
+  showPartyImage();
+});
+
+
 // Show Party Image when Party Time Button Clicked
 function showPartyImage() {
-  document.getElementById('clockImage').src = "clockImages/partyTime.jpg";
-  document.getElementById('clockTitle').innerHTML = "What time is it?";
-  document.getElementById('timeDisplay').innerHTML = "";
+  clockImage.src = "clockImages/partyTime.jpg";
+  clockTitle.innerHTML = "What time is it?";
+  timeDisplay.innerHTML = "";
 }
 
 // Show Warped Clock when Party Time Button Clicked
