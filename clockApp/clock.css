@@ -83,11 +83,9 @@ h1, h2 {
     text-align: center;
     border: 10px solid #5094b8;
     border-radius: 10px;
-    height: 10%;
-    width: 20%;
-    padding: 10px;
+    width: 25%;
+    padding: 20px 10px;
   }
-
   button.large {
     width: 40%;
   }
