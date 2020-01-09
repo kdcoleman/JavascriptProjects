@@ -3,6 +3,12 @@ Author: Kayla D. Coleman
 Author URI: github.com/kdcoleman
 */
 
+// Create event listener for "onclick" of home image
+var count = 0;
+var navToggle = document.getElementById('nav-toggle');
+var animateImg = document.getElementById('homeImage');
+animateImg.addEventListener("click", toggleImgClass);
+
 // Toggle all activate classes to active to toggle navigation bar
 function toggleNavBar() {
   elems = document.getElementsByClassName('activate');
@@ -13,7 +19,6 @@ function toggleNavBar() {
 }
 
 // Create event listener for "onclick" of nav-toggle button
-var navToggle = document.getElementById('nav-toggle');
 navToggle.addEventListener("click", toggleNavBar);
 
 // Toggle clicked class for home image
@@ -38,8 +43,3 @@ function loopTransition() {
     count = 0;
   }
 }
-
-// Create event listener for "onclick" of home image
-var count = 0;
-var animateImg = document.getElementById('homeImage');
-animateImg.addEventListener("click", toggleImgClass);
