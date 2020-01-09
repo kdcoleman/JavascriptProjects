@@ -57,30 +57,28 @@ function calculateTotal(billAmount, tip, numGuests) {
 
 // Display Tip and Total
 function displayTip() {
-  billAmountValue = Number(billAmount.value);
-  tipPercentageValue = Number(tipPercentage.value);
-
-  if (isNaN(billAmountValue)) {
-    updateMessage(billAmountErrMsg, "Wrong format (e.g. #.##)");
+  if (!billAmount.validity.valid) {
+    updateMessage(billAmountErrMsg, billAmount.validationMessage);
   }
   else {
+    billAmountValue = Number(billAmount.value);
+    tipPercentageValue = Number(tipPercentage.value);
     tip = calculateTip(billAmountValue, tipPercentageValue);
     updateMessage(tipAmount, "Tip Amount: $"+tip);
   }
 }
 
 function displayTotal() {
-  billAmountValueValue = Number(billAmount.value);
-  tipPercentageValue = Number(tipPercentage.value);
-  numGuestsValue = Number(numGuests.value);
-
-  if (isNaN(billAmountValue)) {
-    updateMessage(billAmountErrMsg, "Wrong format (e.g. #.##)");
+  if (!billAmount.validity.valid) {
+    updateMessage(billAmountErrMsg, billAmount.validationMessage);
   }
   else if (!numGuests.validity.valid) {
     updateMessage(numGuestsErrMsg, numGuests.validationMessage);
   }
   else {
+    billAmountValueValue = Number(billAmount.value);
+    tipPercentageValue = Number(tipPercentage.value);
+    numGuestsValue = Number(numGuests.value);
     tip = Number(calculateTip(billAmountValue, tipPercentageValue));
     total = calculateTotal(billAmountValue, tip, numGuestsValue);
     updateMessage(totalAmount, "Total Per Guest: $"+total);
