@@ -76,7 +76,7 @@ function displayTotal() {
     updateMessage(numGuestsErrMsg, numGuests.validationMessage);
   }
   else {
-    billAmountValueValue = Number(billAmount.value);
+    billAmountValue = Number(billAmount.value);
     tipPercentageValue = Number(tipPercentage.value);
     numGuestsValue = Number(numGuests.value);
     tip = Number(calculateTip(billAmountValue, tipPercentageValue));
