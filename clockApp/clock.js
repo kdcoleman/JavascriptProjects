@@ -64,36 +64,39 @@ partyTimeElement.addEventListener('click', function(){
 });
 
 
-// Show Party Image when Party Time Button Clicked
+// Show party time image
 function showPartyImage() {
   clockImage.src = "clockImages/partyTime.jpg";
   clockTitle.innerHTML = "What time is it?";
   timeDisplay.innerHTML = "";
 }
 
-// Show Warped Clock when Party Time Button Clicked
+// Show warped clock image
 function showClockImage() {
-  document.getElementById('clockImage').src = "clockImages/warpedClock.png";
+  clockImage.src = "clockImages/warpedClock.png";
 }
 
-// Display Current Time Methods
+// CURRENT TIME METHODS
 var currentTimeInterval;
 var timerInterval;
 
 function displayCurrentTime() {
   var d = new Date();
   var now = d.toLocaleTimeString();
-  document.getElementById('timeDisplay').innerHTML = now + "!";
+  timeDisplay.innerHTML = now + "!";
 }
 
 function startCurrentTime() {
-  document.getElementById('clockTitle').innerHTML = "What time is it?";
+  clockTitle.innerHTML = "What time is it?";
   currentTimeInterval = setInterval(displayCurrentTime, 500);
 }
 
 function stopCurrentTime() {
   clearInterval(currentTimeInterval);
 }
+
+// TIMER METHODS
+var timerRunning;
 
 // Set Dropdown Options for Timer
 function setTimerOptions() {
@@ -113,13 +116,11 @@ function addTimerOptions(elemId) {
   document.getElementById(elemId).appendChild(docf);
 }
 
-// Display Timer Methods
-var timerRunning;
 
 function startTimer() {
   var mins = document.getElementById('timerMinutes').value;
   var secs = document.getElementById('timerSeconds').value;
-  document.getElementById('clockTitle').innerHTML = "Timer";
+  clockTitle.innerHTML = "Timer";
   function checkIfLessThan10() {
     mins = mins < 10 ? ("0" + mins).slice(-2) : mins;
     secs = secs < 10 ? ("0" + secs).slice(-2) : secs;
@@ -127,16 +128,16 @@ function startTimer() {
   function checkTime() {
     checkIfLessThan10();
     if (mins >= 0 && secs > 0) {
-      document.getElementById('timeDisplay').innerHTML= mins+":"+secs;
+      timeDisplay.innerHTML= mins+":"+secs;
       secs--;
     }
     else if (mins > 0 && secs == 0) {
-      document.getElementById('timeDisplay').innerHTML= mins+":"+secs;
+      timeDisplay.innerHTML= mins+":"+secs;
       mins--;
       secs = 59;
     }
     else if (mins == 0 && secs == 0) {
-      document.getElementById('timeDisplay').innerHTML = "Time's Up!";
+      timeDisplay.innerHTML = "Time's Up!";
       clearInterval(timerInterval);
       timerRunning = false;
     }
@@ -156,7 +157,7 @@ function stopTimer() {
   clearInterval(timerInterval);
 }
 
-// Display Stopwatch Methods
+// STOPWATCH METHODS
 var startTime;
 var savedTime;
 var updatedTime;
@@ -172,7 +173,7 @@ function startStopwatch() {
     paused = false;
     running = true;
   }
-  document.getElementById('clockTitle').innerHTML = "Stopwatch";
+  clockTitle.innerHTML = "Stopwatch";
 }
 
 function pauseStopwatch() {
@@ -197,7 +198,7 @@ function resetStopwatch() {
   difference = 0;
   paused = false;
   running = false;
-  document.getElementById('timeDisplay').innerHTML = "00:00:00:000";
+  timeDisplay.innerHTML = "00:00:00:000";
 }
 
 function getNewTime() {
@@ -224,5 +225,5 @@ function getNewTime() {
   ms = (ms < 100) ? (ms > 10) ? "0" + ms : "00" + ms : ms;
 
   // Display time
-  document.getElementById('timeDisplay').innerHTML = h+":"+m+":"+s+":"+ms;
+  timeDisplay.innerHTML = h+":"+m+":"+s+":"+ms;
 }
