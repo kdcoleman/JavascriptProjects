@@ -21,7 +21,8 @@
 
         <form id="tipForm">
           How much is the bill? <br>
-          $ <input type="text" placeholder="Bill Amount" id="billAmount">
+          $ <input type="number" min="0" step="0.01"
+          placeholder="Bill Amount" id="billAmount">
           <span id="billAmountErrMsg"></span>
           <br>
           Tip Percentage <br>
