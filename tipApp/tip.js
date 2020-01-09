@@ -77,8 +77,8 @@ function displayTotal() {
   if (isNaN(billAmountValue)) {
     updateMessage(billAmountErrMsg, "Wrong format (e.g. #.##)");
   }
-  else if (isNaN(numGuestsValue)) {
-    updateMessage(numGuestsErrMsg, "Wrong format (e.g. # greater than or equal to 1)");
+  else if (!numGuests.validity.valid) {
+    updateMessage(numGuestsErrMsg, numGuests.validationMessage);
   }
   else {
     tip = Number(calculateTip(billAmountValue, tipPercentageValue));
