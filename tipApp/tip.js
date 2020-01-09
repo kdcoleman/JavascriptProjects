@@ -9,6 +9,8 @@ var billAmount = document.getElementById('billAmount');
 var numGuests = document.getElementById('numGuests');
 var totalAmount = document.getElementById('totalAmount');
 var bodyElement = document.getElementById('mainBody');
+var billAmountErrMsg = document.getElementById('billAmountErrMsg');
+var numGuestsErrMsg  = document.getElementById('numGuestsErrMsg');
 
 // Set Dropdown Options for Tip Percentage
 function setPercentageOptions() {
@@ -54,7 +56,7 @@ function displayTip() {
   tipPercentageValue = Number(tipPercentage.value);
 
   if (isNaN(billAmountValue)) {
-    window.alert('Wrong format for bill amount!');
+    billAmountErrMsg.innerHTML = "Wrong format (e.g. #.##)";
   }
   else {
     tip = calculateTip(billAmountValue, tipPercentageValue);
@@ -68,10 +70,10 @@ function displayTotal() {
   numGuestsValue = Number(numGuests.value);
 
   if (isNaN(billAmountValue)) {
-    window.alert('Wrong format for bill amount!');
+    billAmountErrMsg.innerHTML = "Wrong format (e.g. #.##)";
   }
   else if (isNaN(numGuestsValue)) {
-    window.alert('Wrong format for number of guests!');
+    numGuestsErrMsg.innerHTML = "Wrong format (e.g. # greater than or equal to 1)";
   }
   else {
     tip = Number(calculateTip(billAmountValue, tipPercentageValue));
