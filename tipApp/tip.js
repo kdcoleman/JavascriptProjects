@@ -5,7 +5,9 @@ Author URI: github.com/kdcoleman
 
 var calculateButton = document.getElementById('calculate');
 var tipPercentage = document.getElementById('tipPercentage');
-var tipForm = document.getElementById('tipForm');
+var billAmount = document.getElementById('billAmount');
+var numGuests = document.getElementById('numGuests');
+var totalAmount = document.getElementById('totalAmount');
 var bodyElement = document.getElementById('mainBody');
 
 // Set Dropdown Options for Tip Percentage
@@ -48,33 +50,33 @@ function calculateTotal(billAmount, tip, numGuests) {
 
 // Display Tip and Total
 function displayTip() {
-  billAmount = Number(document.getElementById('billAmount').value);
-  tipPercentage = Number(document.getElementById('tipPercentage').value);
+  billAmountValue = Number(billAmount.value);
+  tipPercentageValue = Number(tipPercentage.value);
 
-  if (isNaN(billAmount)) {
+  if (isNaN(billAmountValue)) {
     window.alert('Wrong format for bill amount!');
   }
   else {
-    tip = calculateTip(billAmount, tipPercentage);
-    document.getElementById('tipAmount').innerHTML = "Tip Amount: $"+tip;
+    tip = calculateTip(billAmountValue, tipPercentageValue);
+    tipAmount.innerHTML = "Tip Amount: $"+tip;
   }
 }
 
 function displayTotal() {
-  billAmount = Number(document.getElementById('billAmount').value);
-  tipPercentage = Number(document.getElementById('tipPercentage').value);
-  numGuests = Number(document.getElementById('numGuests').value);
+  billAmountValueValue = Number(billAmount.value);
+  tipPercentageValue = Number(tipPercentage.value);
+  numGuestsValue = Number(numGuests.value);
 
-  if (isNaN(billAmount)) {
+  if (isNaN(billAmountValue)) {
     window.alert('Wrong format for bill amount!');
   }
-  else if (isNaN(numGuests)) {
+  else if (isNaN(numGuestsValue)) {
     window.alert('Wrong format for number of guests!');
   }
   else {
-    tip = Number(calculateTip(billAmount, tipPercentage));
-    total = calculateTotal(billAmount, tip, numGuests);
-    document.getElementById('totalAmount').innerHTML = "Total Per Guest: $"+total;
+    tip = Number(calculateTip(billAmountValue, tipPercentageValue));
+    total = calculateTotal(billAmountValue, tip, numGuestsValue);
+    totalAmount.innerHTML = "Total Per Guest: $"+total;
   }
 
 }
@@ -86,14 +88,14 @@ calculateButton.addEventListener('click', function(){
 });
 
 // Display tip and total when press enter in input fields
-document.getElementById('billAmount').onkeypress = function (event) {
+billAmount.onkeypress = function (event) {
   if (event.keyCode == 13) {
     displayTip();
     displayTotal();
   }
 }
 
-document.getElementById('numGuests').onkeypress = function (event) {
+numGuests.onkeypress = function (event) {
   if (event.keyCode == 13) {
     displayTip();
     displayTotal();
