@@ -100,6 +100,21 @@ h1, h2 {
     color: #000;
     text-align: left;
   }
+  form span {
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 20px;
+    color: red;
+    font-size: 8px;
+    font-family: 'Solway', serif;
+    font-weight: 200;
+    display: block;
+    width: 50%;
+  }
+
+  form span.left{
+    padding-left: 0;
+  }
 
   input {
     width: 50%;
