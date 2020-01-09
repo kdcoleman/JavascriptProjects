@@ -88,23 +88,28 @@ function displayTotal() {
 
 }
 
-// Display tip and total when calculate button clicked
-calculateButton.addEventListener('click', function(){
+// Display tip and total
+function displayAmounts() {
+  updateMessage(billAmountErrMsg, "");
+  updateMessage(numGuestsErrMsg, "");
   displayTip();
   displayTotal();
+}
+
+// Display tip and total when calculate button clicked
+calculateButton.addEventListener('click', function(){
+  displayAmounts();
 });
 
 // Display tip and total when press enter in input fields
 billAmount.onkeypress = function (event) {
   if (event.keyCode == 13) {
-    displayTip();
-    displayTotal();
+    displayAmounts();
   }
 }
 
 numGuests.onkeypress = function (event) {
   if (event.keyCode == 13) {
-    displayTip();
-    displayTotal();
+    displayAmounts();
   }
 }
