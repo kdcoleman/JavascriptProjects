@@ -38,6 +38,11 @@ bodyElement.onload = function() {
   addPercentageOptions(tipPercentage);
 };
 
+// Update message
+function updateMessage(element, value) {
+  element.innerHTML = value;
+}
+
 // Calculate Tip
 function calculateTip(billAmount, tipPercentage) {
   tip = billAmount*(tipPercentage/100);
@@ -56,11 +61,11 @@ function displayTip() {
   tipPercentageValue = Number(tipPercentage.value);
 
   if (isNaN(billAmountValue)) {
-    billAmountErrMsg.innerHTML = "Wrong format (e.g. #.##)";
+    updateMessage(billAmountErrMsg, "Wrong format (e.g. #.##)");
   }
   else {
     tip = calculateTip(billAmountValue, tipPercentageValue);
-    tipAmount.innerHTML = "Tip Amount: $"+tip;
+    updateMessage(tipAmount, "Tip Amount: $"+tip);
   }
 }
 
@@ -70,15 +75,15 @@ function displayTotal() {
   numGuestsValue = Number(numGuests.value);
 
   if (isNaN(billAmountValue)) {
-    billAmountErrMsg.innerHTML = "Wrong format (e.g. #.##)";
+    updateMessage(billAmountErrMsg, "Wrong format (e.g. #.##)");
   }
   else if (isNaN(numGuestsValue)) {
-    numGuestsErrMsg.innerHTML = "Wrong format (e.g. # greater than or equal to 1)";
+    updateMessage(numGuestsErrMsg, "Wrong format (e.g. # greater than or equal to 1)");
   }
   else {
     tip = Number(calculateTip(billAmountValue, tipPercentageValue));
     total = calculateTotal(billAmountValue, tip, numGuestsValue);
-    totalAmount.innerHTML = "Total Per Guest: $"+total;
+    updateMessage(totalAmount, "Total Per Guest: $"+total);
   }
 
 }
