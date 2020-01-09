@@ -19,9 +19,9 @@ var timeDisplay = document.getElementById('timeDisplay');
 bodyElement.onload = function() {
   displayCurrentTime();
   startCurrentTime();
-  addTimerOptions('timerHours');
-  addTimerOptions('timerMinutes');
-  addTimerOptions('timerSeconds');
+  addTimerOptions('timerHours', 0, 23);
+  addTimerOptions('timerMinutes', 0, 59);
+  addTimerOptions('timerSeconds', 0, 59);
 };
 
 // Add onclick event listeners for time buttons
@@ -102,9 +102,9 @@ var mins;
 var secs;
 
 // Set Dropdown Options for Timer
-function setTimerOptions() {
+function setTimerOptions(min, max) {
   df = document.createDocumentFragment();
-  for (var i = 0; i < 60; i++) {
+  for (var i = min; i <= max; i++) {
     var option = document.createElement('option');
     option.value = i;
     option.appendChild(document.createTextNode(i));
@@ -114,8 +114,8 @@ function setTimerOptions() {
 }
 
 // Add Dropdown Options to Element
-function addTimerOptions(elemId) {
-  docf = setTimerOptions();
+function addTimerOptions(elemId, min, max) {
+  docf = setTimerOptions(min, max);
   document.getElementById(elemId).appendChild(docf);
 }
 
