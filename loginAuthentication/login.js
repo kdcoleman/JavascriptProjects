@@ -4,17 +4,17 @@ Author URI: github.com/kdcoleman
 */
 
 // LOGIN
-var loginLink = document.getElementById('loginLink');
-var loginButton = document.getElementById('loginButton');
-var loginAlert = document.getElementById('loginAlert');
-var closeLogin = document.getElementById('closeLogin');
-var loginEmailMsg = document.getElementById('loginEmailErrMsg');
-var loginPasswdMsg = document.getElementById('loginPasswdErrMsg');
-var loginForm = document.forms['loginForm'];
-var emailPattern = "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+([\.-]?[A-Za-z0-9!#$%&'*+/=?^_`{|}~]+)*@[A-Za-z0-9]+([\-]?[A-Z-a-z0-9]+)*(\.[A-Za-z]{2,3})+";
+let loginLink = document.getElementById('loginLink');
+let loginButton = document.getElementById('loginButton');
+let loginAlert = document.getElementById('loginAlert');
+let closeLogin = document.getElementById('closeLogin');
+let loginEmailMsg = document.getElementById('loginEmailErrMsg');
+let loginPasswdMsg = document.getElementById('loginPasswdErrMsg');
+let loginForm = document.forms['loginForm'];
+let emailPattern = "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+([\.-]?[A-Za-z0-9!#$%&'*+/=?^_`{|}~]+)*@[A-Za-z0-9]+([\-]?[A-Z-a-z0-9]+)*(\.[A-Za-z]{2,3})+";
 
 // Mock data for an authenticated user
-var returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainthecity.com", password: "H@ppyG!rl"};
+let returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainthecity.com", password: "H@ppyG!rl"};
 
 // Set email pattern
 loginForm.elements.emailAddress.pattern = emailPattern;
@@ -47,7 +47,7 @@ function resetLoginForm() {
 
 // Email validation method
 function validateEmail(inputElement, messageElement, formElement) {
-  var validityState = inputElement.validity;
+  let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
     inputElement.setCustomValidity('Required');
@@ -72,7 +72,7 @@ function validateEmail(inputElement, messageElement, formElement) {
 
 // Password validation method
 function validatePassword(inputElement, messageElement, formElement) {
-  var validityState = inputElement.validity;
+  let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
     inputElement.setCustomValidity('Required');
@@ -142,17 +142,17 @@ document.getElementById('passwd').addEventListener('keypress', function (event) 
 
 
 // SIGN UP
-var signupLink = document.getElementById('signupLink');
-var signupButton = document.getElementById('signupButton');
-var signupAlert = document.getElementById('signupAlert');
-var closeLogin = document.getElementById('closeSignup');
-var firstNameMsg = document.getElementById('signupFirstNameErrMsg');
-var lastNameMsg = document.getElementById('signupLastNameErrMsg');
-var signupEmailMsg = document.getElementById('signupEmailErrMsg');
-var signupPasswdMsg = document.getElementById('signupPasswdErrMsg');
-var confirmPasswdMsg = document.getElementById('signupConfirmPasswdErrMsg');
-var signupForm = document.forms['signupForm'];
-var namePattern = "[A-Za-z-\']+";
+let signupLink = document.getElementById('signupLink');
+let signupButton = document.getElementById('signupButton');
+let signupAlert = document.getElementById('signupAlert');
+let closeLogin = document.getElementById('closeSignup');
+let firstNameMsg = document.getElementById('signupFirstNameErrMsg');
+let lastNameMsg = document.getElementById('signupLastNameErrMsg');
+let signupEmailMsg = document.getElementById('signupEmailErrMsg');
+let signupPasswdMsg = document.getElementById('signupPasswdErrMsg');
+let confirmPasswdMsg = document.getElementById('signupConfirmPasswdErrMsg');
+let signupForm = document.forms['signupForm'];
+let namePattern = "[A-Za-z-\']+";
 
 // Set first and last name pattern
 signupForm.elements.firstName.pattern = namePattern;
@@ -184,7 +184,7 @@ function resetSignupForm() {
 
 // First name validation method
 function validateFirstName(inputElement, messageElement, formElement) {
-  var validityState = inputElement.validity;
+  let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
     inputElement.setCustomValidity('Required');
@@ -204,7 +204,7 @@ function validateFirstName(inputElement, messageElement, formElement) {
 
 // Last name validation method
 function validateLastName(inputElement, messageElement, formElement) {
-  var validityState = inputElement.validity;
+  let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
     inputElement.setCustomValidity('Required');
@@ -224,7 +224,7 @@ function validateLastName(inputElement, messageElement, formElement) {
 
 // Confirm password method
 function confirmPassword(inputElement, inputElementMatch, messageElement, formElement) {
-  var validityState = inputElement.validity;
+  let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
     inputElement.setCustomValidity('Required');

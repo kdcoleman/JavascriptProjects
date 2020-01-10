@@ -4,9 +4,9 @@ Author URI: github.com/kdcoleman
 */
 
 // Create event listener for "onclick" of home image
-var count = 0;
-var navToggle = document.getElementById('nav-toggle');
-var animateImg = document.getElementById('homeImage');
+let count = 0;
+let navToggle = document.getElementById('nav-toggle');
+let animateImg = document.getElementById('homeImage');
 animateImg.addEventListener("click", toggleImgClass);
 
 // Toggle all activate classes to active to toggle navigation bar

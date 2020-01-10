@@ -3,20 +3,20 @@ Author: Kayla D. Coleman
 Author URI: github.com/kdcoleman
 */
 
-var calculateButton = document.getElementById('calculate');
-var tipPercentage = document.getElementById('tipPercentage');
-var billAmount = document.getElementById('billAmount');
-var numGuests = document.getElementById('numGuests');
-var totalAmount = document.getElementById('totalAmount');
-var bodyElement = document.getElementById('mainBody');
-var billAmountErrMsg = document.getElementById('billAmountErrMsg');
-var numGuestsErrMsg  = document.getElementById('numGuestsErrMsg');
+let calculateButton = document.getElementById('calculate');
+let tipPercentage = document.getElementById('tipPercentage');
+let billAmount = document.getElementById('billAmount');
+let numGuests = document.getElementById('numGuests');
+let totalAmount = document.getElementById('totalAmount');
+let bodyElement = document.getElementById('mainBody');
+let billAmountErrMsg = document.getElementById('billAmountErrMsg');
+let numGuestsErrMsg  = document.getElementById('numGuestsErrMsg');
 
 // Set Dropdown Options for Tip Percentage
 function setPercentageOptions() {
   df = document.createDocumentFragment();
   for (var i = 10; i <= 25; i++) {
-    var option = document.createElement('option');
+    let option = document.createElement('option');
     option.value = i;
     option.appendChild(document.createTextNode(i+"%"));
     df.appendChild(option);

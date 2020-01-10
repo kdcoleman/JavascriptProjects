@@ -4,17 +4,17 @@ Author URI: github.com/kdcoleman
 */
 
 // Welcome
-var welcomeAlert = document.getElementById('welcomeAlert');
-var welcomeMsg = document.getElementById('welcomeMsg');
-var closeWelcome = document.getElementById('closeWelcome');
+let welcomeAlert = document.getElementById('welcomeAlert');
+let welcomeMsg = document.getElementById('welcomeMsg');
+let closeWelcome = document.getElementById('closeWelcome');
 let firstName = getUrlVariable('firstName') ? getUrlVariable('firstName') : null;
 let lastName = getUrlVariable('lastName') ? getUrlVariable('lastName') : null;
 let email = getUrlVariable('emailAddress') ? getUrlVariable('emailAddress'): getUrlVariable('signupEmail');
 let password = getUrlVariable('passwd') ? getUrlVariable('passwd'):getUrlVariable('signupPasswd');
-var newUser = {firstName: firstName, lastName: lastName, email: email, password: password};
+let newUser = {firstName: firstName, lastName: lastName, email: email, password: password};
 
 // Mock data for an authenticated user
-var returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainthecity.com", password: "H@ppyG!rl"};
+let returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainthecity.com", password: "H@ppyG!rl"};
 
 // Close welcome alert onclick of close button
 closeWelcome.addEventListener('click', function(){
@@ -27,10 +27,10 @@ window.addEventListener('load', function() {
 
 // Get url variables
 function getUrlVariable(variable) {
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
+  let query = window.location.search.substring(1);
+  let vars = query.split("&");
   for (var i = 0; i < vars.length; i++) {
-   var pair = vars[i].split("=");
+   let pair = vars[i].split("=");
 
    if (pair[0] == variable){
      if (pair[1].includes("%40")) {

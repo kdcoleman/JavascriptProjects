@@ -3,17 +3,16 @@ Author: Kayla D. Coleman
 Author URI: github.com/kdcoleman
 */
 
-var bodyElement = document.getElementById('mainBody');
-var startTimerElement = document.getElementById('startTimer');
-var stopTimerElement = document.getElementById('stopTimer');
-var startStopwatchElement = document.getElementById('startStopwatch');
-var pauseStopwatchElement = document.getElementById('pauseStopwatch');
-var resetStopwatchElement = document.getElementById('resetStopwatch');
-var currentTimeElement = document.getElementById('currentTime');
-var partyTimeElement = document.getElementById('partyTime');
-var clockImage = document.getElementById('clockImage');
-var clockTitle = document.getElementById('clockTitle');
-var timeDisplay = document.getElementById('timeDisplay');
+let startTimerElement = document.getElementById('startTimer');
+let stopTimerElement = document.getElementById('stopTimer');
+let startStopwatchElement = document.getElementById('startStopwatch');
+let pauseStopwatchElement = document.getElementById('pauseStopwatch');
+let resetStopwatchElement = document.getElementById('resetStopwatch');
+let currentTimeElement = document.getElementById('currentTime');
+let partyTimeElement = document.getElementById('partyTime');
+let clockImage = document.getElementById('clockImage');
+let clockTitle = document.getElementById('clockTitle');
+let timeDisplay = document.getElementById('timeDisplay');
 
 // Show current time and add timer options on load
 window.addEventListener('load', function() {
@@ -83,12 +82,12 @@ function showClockImage() {
 }
 
 // CURRENT TIME METHODS
-var currentTimeInterval;
-var timerInterval;
+let currentTimeInterval;
+let timerInterval;
 
 function displayCurrentTime() {
-  var d = new Date();
-  var now = d.toLocaleTimeString();
+  let d = new Date();
+  let now = d.toLocaleTimeString();
   updateText(timeDisplay, now + "!");
 }
 
@@ -102,16 +101,16 @@ function stopCurrentTime() {
 }
 
 // TIMER METHODS
-var timerRunning;
-var hrs;
-var mins;
-var secs;
+let timerRunning;
+let hrs;
+let mins;
+let secs;
 
 // Set Dropdown Options for Timer
 function setTimerOptions(min, max) {
   df = document.createDocumentFragment();
   for (var i = min; i <= max; i++) {
-    var option = document.createElement('option');
+    let option = document.createElement('option');
     option.value = i;
     option.appendChild(document.createTextNode(i));
     df.appendChild(option);
@@ -179,13 +178,13 @@ function stopTimer() {
 }
 
 // STOPWATCH METHODS
-var startTime;
-var savedTime;
-var updatedTime;
-var difference;
-var stopwatchInterval;
-var paused = false;
-var running = false;
+let startTime;
+let savedTime;
+let updatedTime;
+let difference;
+let stopwatchInterval;
+let paused = false;
+let running = false;
 
 function startStopwatch() {
   if(!running) {
@@ -234,10 +233,10 @@ function getNewTime() {
   }
 
   // Convert the difference to time
-  var h = Math.floor((difference % (1000*60*60*24))/(1000*60*60));
-  var m = Math.floor((difference % (1000*60*60))/(1000*60));
-  var s = Math.floor((difference % (1000*60))/1000);
-  var ms = Math.floor((difference % (1000*60))/100);
+  let h = Math.floor((difference % (1000*60*60*24))/(1000*60*60));
+  let m = Math.floor((difference % (1000*60*60))/(1000*60));
+  let s = Math.floor((difference % (1000*60))/1000);
+  let ms = Math.floor((difference % (1000*60))/100);
 
   // Add zero for single digit values
   h = (h < 10) ? "0" + h : h;
