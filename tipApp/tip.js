@@ -34,9 +34,9 @@ function addPercentageOptions(element) {
 }
 
 // Add percentage options when body loads
-bodyElement.onload = function() {
+window.addEventListener('load', function() {
   addPercentageOptions(tipPercentage);
-};
+});
 
 // Update message
 function updateMessage(element, value) {
@@ -100,14 +100,14 @@ calculateButton.addEventListener('click', function(){
 });
 
 // Display tip and total when press enter in input fields
-billAmount.onkeypress = function (event) {
+billAmount.addEventListener('keypress', function (event) {
   if (event.keyCode == 13) {
     displayAmounts();
   }
-}
+});
 
-numGuests.onkeypress = function (event) {
+numGuests.addEventListener('keypress', function (event) {
   if (event.keyCode == 13) {
     displayAmounts();
   }
-}
+});

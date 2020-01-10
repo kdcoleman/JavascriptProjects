@@ -124,21 +124,21 @@ function validateLoginForm() {
 
 
 // Validate credentials onsubmit of login button on login alert
-document.getElementById('loginForm').onsubmit = function() {
+document.getElementById('loginForm').addEventListener('submit', function() {
   return validateLoginForm();
-};
+});
 
 // Validate credentials when press enter in input fields on login alert
-document.getElementById('emailAddress').onkeypress = function (event) {
+document.getElementById('emailAddress').addEventListener('keypress', function (event) {
   if (event.keyCode == 13) {
     return validateLoginForm();
   }
-}
-document.getElementById('passwd').onkeypress = function (event) {
+});
+document.getElementById('passwd').addEventListener('keypress', function (event) {
   if (event.keyCode == 13) {
     return validateLoginForm();
   }
-}
+});
 
 
 // SIGN UP
@@ -281,28 +281,28 @@ function validateSignupForm() {
 
 
 // Validate credentials onsubmit of signup button on signup alert
-document.getElementById('signupForm').onsubmit = function() {
+document.getElementById('signupForm').addEventListener('submit', function() {
   return validateSignupForm();
-};
+});
 
 // Validate credentials when press enter in input fields on signup alert
-document.getElementById('firstName').onkeypress = function (event) {
+document.getElementById('firstName').addEventListener('keypress', function (event) {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }
-}
-document.getElementById('lastName').onkeypress = function (event) {
+});
+document.getElementById('lastName').addEventListener('keypress', function (event) {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }
-}
-document.getElementById('signupEmail').onkeypress = function (event) {
+});
+document.getElementById('signupEmail').addEventListener('keypress' = function (event) {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }
-}
-document.getElementById('signupPasswd').onkeypress = function (event) {
+});
+document.getElementById('signupPasswd').addEventListener('keypress', function (event) {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }
-}
+});

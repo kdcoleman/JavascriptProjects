@@ -16,13 +16,13 @@ var clockTitle = document.getElementById('clockTitle');
 var timeDisplay = document.getElementById('timeDisplay');
 
 // Show current time and add timer options on load
-bodyElement.onload = function() {
+window.addEventListener('load', function() {
   displayCurrentTime();
   startCurrentTime();
   addTimerOptions('timerHours', 0, 23);
   addTimerOptions('timerMinutes', 0, 59);
   addTimerOptions('timerSeconds', 0, 59);
-};
+});
 
 // Add onclick event listeners for time buttons
 startTimerElement.addEventListener('click', function(){

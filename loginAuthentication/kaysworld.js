@@ -21,8 +21,9 @@ closeWelcome.addEventListener('click', function(){
   welcomeAlert.classList.remove('active');
 })
 
-let bodyElement = document.getElementsByTagName('body')[0];
-bodyElement.onload = showWelcomeMessage;
+window.addEventListener('load', function() {
+  showWelcomeMessage();
+});
 
 // Get url variables
 function getUrlVariable(variable) {

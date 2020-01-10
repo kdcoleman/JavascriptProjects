@@ -19,7 +19,7 @@ function toggleNavBar() {
 }
 
 // Create event listener for "onclick" of nav-toggle button
-navToggle.addEventListener("click", toggleNavBar);
+navToggle.addEventListener('click', toggleNavBar);
 
 // Toggle clicked class for home image
 function toggleImgClass() {
