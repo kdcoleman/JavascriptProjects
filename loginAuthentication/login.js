@@ -35,7 +35,7 @@ closeLogin.addEventListener('click', function(){
 
 // Update validation message method
 function updateMessage(element, value) {
-  element.innerHTML = value;
+  element.textContent = value;
 }
 
 // Reset login form

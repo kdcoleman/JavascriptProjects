@@ -40,7 +40,7 @@ bodyElement.onload = function() {
 
 // Update message
 function updateMessage(element, value) {
-  element.innerHTML = value;
+  element.textContent = value;
 }
 
 // Calculate Tip

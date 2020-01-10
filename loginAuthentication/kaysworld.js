@@ -45,7 +45,7 @@ function getUrlVariable(variable) {
 
 // Update welcome message method
 function updateMessage(element, value) {
-  element.innerHTML = value;
+  element.textContent = value;
 }
 
 function showWelcomeMessage() {

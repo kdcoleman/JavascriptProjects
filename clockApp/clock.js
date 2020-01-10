@@ -64,12 +64,17 @@ partyTimeElement.addEventListener('click', function(){
   showPartyImage();
 });
 
+// Update textContent
+function updateText(element, value) {
+  element.textContent = value;
+}
+
 
 // Show party time image
 function showPartyImage() {
   clockImage.src = "clockImages/partyTime.jpg";
-  clockTitle.innerHTML = "What time is it?";
-  timeDisplay.innerHTML = "";
+  updateText(clockTitle, "What time is it?");
+  updateText(timeDisplay, "");
 }
 
 // Show warped clock image
@@ -84,11 +89,11 @@ var timerInterval;
 function displayCurrentTime() {
   var d = new Date();
   var now = d.toLocaleTimeString();
-  timeDisplay.innerHTML = now + "!";
+  updateText(timeDisplay, now + "!");
 }
 
 function startCurrentTime() {
-  clockTitle.innerHTML = "What time is it?";
+  updateText(clockTitle, "What time is it?");
   currentTimeInterval = setInterval(displayCurrentTime, 500);
 }
 
@@ -125,7 +130,7 @@ function displayTimeLeft() {
   hrs = hrs < 10 ? ("0" + hrs).slice(-2) : hrs;
   mins = mins < 10 ? ("0" + mins).slice(-2) : mins;
   secs = secs < 10 ? ("0" + secs).slice(-2) : secs;
-  timeDisplay.innerHTML= hrs+":"+mins+":"+secs;
+  updateText(timeDisplay, hrs+":"+mins+":"+secs);
 }
 
 // Check how much time is left
@@ -146,7 +151,7 @@ function checkTimeLeft() {
     secs = 59;
   }
   else if (hrs == 0 && mins == 0 && secs == 0) {
-    timeDisplay.innerHTML = "Time's Up!";
+    updateText(timeDisplay, "Time's Up!");
     clearInterval(timerInterval);
     timerRunning = false;
   }
@@ -157,7 +162,7 @@ function startTimer() {
   mins = document.getElementById('timerMinutes').value;
   secs = document.getElementById('timerSeconds').value;
   checkTimeLeft();
-  clockTitle.innerHTML = "Timer";
+  updateText(clockTitle, "Timer");
 
   // Clear timer interval and start a new one if already running
   if (!timerRunning) {
@@ -189,7 +194,7 @@ function startStopwatch() {
     paused = false;
     running = true;
   }
-  clockTitle.innerHTML = "Stopwatch";
+  updateText(clockTitle, "Stopwatch");
 }
 
 function pauseStopwatch() {
@@ -214,7 +219,7 @@ function resetStopwatch() {
   difference = 0;
   paused = false;
   running = false;
-  timeDisplay.innerHTML = "00:00:00:000";
+  updateText(timeDisplay, "00:00:00:000");
 }
 
 function getNewTime() {
@@ -241,5 +246,5 @@ function getNewTime() {
   ms = (ms < 100) ? (ms > 10) ? "0" + ms : "00" + ms : ms;
 
   // Display time
-  timeDisplay.innerHTML = h+":"+m+":"+s+":"+ms;
+  updateText(timeDisplay, h+":"+m+":"+s+":"+ms);
 }
