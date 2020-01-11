@@ -111,7 +111,7 @@ function validateLoginForm() {
     if (emailInput == returningUser.email && passwdInput == returningUser.password){
       return true;
     } else if (emailInput.value != returningUser.email) {
-      updateMessage(loginEmailMsg, "Email address not found");
+      updateMessage(loginEmailMsg, "Account not found");
       return false;
     } else if (passwdInput.value != returningUser.password) {
       updateMessage(loginPasswdMsg, "Incorrect password");
@@ -124,9 +124,9 @@ function validateLoginForm() {
 
 
 // Validate credentials onsubmit of login button on login alert
-document.getElementById('loginForm').addEventListener('submit', function() {
+document.getElementById('loginForm').onsubmit = function() {
   return validateLoginForm();
-});
+};
 
 // Validate credentials when press enter in input fields on login alert
 document.getElementById('emailAddress').addEventListener('keypress', function (event) {
@@ -145,7 +145,7 @@ document.getElementById('passwd').addEventListener('keypress', function (event) 
 let signupLink = document.getElementById('signupLink');
 let signupButton = document.getElementById('signupButton');
 let signupAlert = document.getElementById('signupAlert');
-let closeLogin = document.getElementById('closeSignup');
+let closeSignup = document.getElementById('closeSignup');
 let firstNameMsg = document.getElementById('signupFirstNameErrMsg');
 let lastNameMsg = document.getElementById('signupLastNameErrMsg');
 let signupEmailMsg = document.getElementById('signupEmailErrMsg');
@@ -271,7 +271,7 @@ function validateSignupForm() {
     if (signupEmailInput.value != returningUser.email) {
       return true;
     } else {
-      updateMessage(signupEmailMsg, "Sorry this email is already in use");
+      updateMessage(signupEmailMsg, "Sorry, this email is already in use");
       return false;
     }
   } else {
@@ -281,9 +281,9 @@ function validateSignupForm() {
 
 
 // Validate credentials onsubmit of signup button on signup alert
-document.getElementById('signupForm').addEventListener('submit', function() {
+document.getElementById('signupForm').onsubmit = function() {
   return validateSignupForm();
-});
+};
 
 // Validate credentials when press enter in input fields on signup alert
 document.getElementById('firstName').addEventListener('keypress', function (event) {
@@ -296,7 +296,7 @@ document.getElementById('lastName').addEventListener('keypress', function (event
     return validateSignupForm();
   }
 });
-document.getElementById('signupEmail').addEventListener('keypress' = function (event) {
+document.getElementById('signupEmail').addEventListener('keypress', function (event) {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }
