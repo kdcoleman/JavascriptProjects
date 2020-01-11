@@ -54,7 +54,7 @@ function showWelcomeMessage() {
     newUserMsg = "Welcome " + newUser.firstName +
     "! We're so glad you decided to explore the land of Kay. We sent a confirmation email to " + newUser.email +
     ". <br><br> Please confirm your account."
-    updateMessage(welcomeMsg, newUserMsg);
+    welcomeMsg.innerHTML = newUserMsg;
   } else if (returningUser.firstName){
     returningUserMsg = "Welcome back " + returningUser.firstName +
     "! Check out what's new since your last time here. Happy exploring!"
