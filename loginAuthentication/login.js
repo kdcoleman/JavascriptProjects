@@ -243,7 +243,7 @@ function confirmPassword(inputElement, inputElementMatch, messageElement, formEl
 
 //URL to pass the signup form data
 fileURL = "kaysWorld.html";
-signupForm.method = "get";
+signupForm.method = "post";
 signupForm.action = fileURL;
 
 
