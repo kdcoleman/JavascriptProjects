@@ -41,31 +41,3 @@ Creates a login authentication bar
 * Custom forms for login and signup
 * Custom form validation for login and signup
 * Login and signup authentication for mock user (no session created)
-
-## Login Authentication with User, Authentication, and Login using Sessions
-
-#### Original project:
-Extend **Login Authentication** project to authenticate and login/logout user
-
-#### My project (kaysworld):
-* Custom User model
-* Custom authentication
-* Custom login and signup using sessions
-* Confirm account email with token sent after signup
-* JS code to detect user activity and send keep alive pulses to server
-* JS code to detect user inactivity and alert user to extend session
-* JS/AJAX code to expire session if user inactive for 5 mins
-
-## Django Login Authentication with Custom User Model
-
-#### Original project:
-Login Authentication using Django authentication system with a custom User model
-
-#### My project (kaysworldDjangoUser):
-* Custom Django Auth User model
-* Confirm account email with token sent after signup
-* JS code to detect user inactivity and alert user to extend session
-* JS/AJAX code to log the user out if user inactive for 5 mins
-* Functional tests for signup and login
-
-
