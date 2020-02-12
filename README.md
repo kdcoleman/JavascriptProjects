@@ -41,3 +41,4 @@ Creates a login authentication bar
 * Custom forms for login and signup
 * Custom form validation for login and signup
 * Login and signup authentication for mock user (no session created)
+* See [Django Projects](https://github.com/kdcoleman/DjangoProjects) for project extensions with Django
