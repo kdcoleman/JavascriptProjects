@@ -17,11 +17,11 @@ let newUser = {firstName: firstName, lastName: lastName, email: email, password:
 let returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainthecity.com", password: "H@ppyG!rl"};
 
 // Close welcome alert onclick of close button
-closeWelcome.addEventListener('click', function(){
+closeWelcome.addEventListener('click', () => {
   welcomeAlert.classList.remove('active');
 })
 
-window.addEventListener('load', function() {
+window.addEventListener('load', () => {
   showWelcomeMessage();
 });
 
@@ -45,7 +45,7 @@ function getUrlVariable(variable) {
 }
 
 // Update welcome message method
-function updateMessage(element, value) {
+const updateMessage = (element, value) => {
   element.textContent = value;
 }
 

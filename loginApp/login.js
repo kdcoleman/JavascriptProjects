@@ -20,21 +20,21 @@ let returningUser = {firstName: "Lola", lastName: "Bunny", email: "lola@lolainth
 loginForm.elements.emailAddress.pattern = emailPattern;
 
 // Show login alert onclick of login link
-loginLink.addEventListener('click', function(){
+loginLink.addEventListener('click', () => {
   signupAlert.classList.remove('active');
   resetSignupForm();
   loginAlert.classList.toggle('active');
 })
 
 // Close login alert onclick of close button
-closeLogin.addEventListener('click', function(){
+closeLogin.addEventListener('click', () => {
   loginAlert.classList.toggle('active');
   resetLoginForm();
 })
 
 
 // Update validation message method
-function updateMessage(element, value) {
+const updateMessage = (element, value) => {
   element.textContent = value;
 }
 
@@ -46,7 +46,7 @@ function resetLoginForm() {
 }
 
 // Email validation method
-function validateEmail(inputElement, messageElement, formElement) {
+const validateEmail = (inputElement, messageElement, formElement) => {
   let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
@@ -71,7 +71,7 @@ function validateEmail(inputElement, messageElement, formElement) {
 
 
 // Password validation method
-function validatePassword(inputElement, messageElement, formElement) {
+const validatePassword = (inputElement, messageElement, formElement) => {
   let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
@@ -96,7 +96,7 @@ loginForm.action = fileURL;
 
 
 // Login form validation method
-function validateLoginForm() {
+const validateLoginForm = () => {
   emailInput =  document.getElementById('emailAddress');
   passwdInput =  document.getElementById('passwd');
 
@@ -124,17 +124,18 @@ function validateLoginForm() {
 
 
 // Validate credentials onsubmit of login button on login alert
-document.getElementById('loginForm').onsubmit = function() {
+document.getElementById('loginForm').onsubmit = () => {
   return validateLoginForm();
 };
 
 // Validate credentials when press enter in input fields on login alert
-document.getElementById('emailAddress').addEventListener('keypress', function (event) {
+document.getElementById('emailAddress').addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     return validateLoginForm();
   }
 });
-document.getElementById('passwd').addEventListener('keypress', function (event) {
+
+document.getElementById('passwd').addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     return validateLoginForm();
   }
@@ -159,14 +160,14 @@ signupForm.elements.firstName.pattern = namePattern;
 signupForm.elements.lastName.pattern = namePattern;
 
 // Show signup alert onclick of signup link
-signupLink.addEventListener('click', function(){
+signupLink.addEventListener('click', () => {
   loginAlert.classList.remove('active');
   resetLoginForm();
   signupAlert.classList.toggle('active');
 })
 
 // Close signup alert onclick of close button
-closeSignup.addEventListener('click', function(){
+closeSignup.addEventListener('click', () => {
   signupAlert.classList.toggle('active');
   resetSignupForm();
 })
@@ -183,7 +184,7 @@ function resetSignupForm() {
 
 
 // First name validation method
-function validateFirstName(inputElement, messageElement, formElement) {
+const validateFirstName = (inputElement, messageElement, formElement) => {
   let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
@@ -203,7 +204,7 @@ function validateFirstName(inputElement, messageElement, formElement) {
 
 
 // Last name validation method
-function validateLastName(inputElement, messageElement, formElement) {
+const validateLastName = (inputElement, messageElement, formElement) => {
   let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
@@ -223,7 +224,7 @@ function validateLastName(inputElement, messageElement, formElement) {
 
 
 // Confirm password method
-function confirmPassword(inputElement, inputElementMatch, messageElement, formElement) {
+const confirmPassword = (inputElement, inputElementMatch, messageElement, formElement) => {
   let validityState = inputElement.validity;
 
   if (validityState.valueMissing) {
@@ -243,12 +244,12 @@ function confirmPassword(inputElement, inputElementMatch, messageElement, formEl
 
 //URL to pass the signup form data
 fileURL = "kaysWorld.html";
-signupForm.method = "post";
+signupForm.method = "get"; //Use post and server side code to get params in real life
 signupForm.action = fileURL;
 
 
 // Signup form validation method
-function validateSignupForm() {
+const validateSignupForm = () => {
   firstNameInput =  document.getElementById('firstName');
   lastNameInput =  document.getElementById('lastName');
   signupEmailInput = document.getElementById('signupEmail');
@@ -281,27 +282,27 @@ function validateSignupForm() {
 
 
 // Validate credentials onsubmit of signup button on signup alert
-document.getElementById('signupForm').onsubmit = function() {
+document.getElementById('signupForm').onsubmit = () => {
   return validateSignupForm();
 };
 
 // Validate credentials when press enter in input fields on signup alert
-document.getElementById('firstName').addEventListener('keypress', function (event) {
+document.getElementById('firstName').addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }
 });
-document.getElementById('lastName').addEventListener('keypress', function (event) {
+document.getElementById('lastName').addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }
 });
-document.getElementById('signupEmail').addEventListener('keypress', function (event) {
+document.getElementById('signupEmail').addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }
 });
-document.getElementById('signupPasswd').addEventListener('keypress', function (event) {
+document.getElementById('signupPasswd').addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     return validateSignupForm();
   }

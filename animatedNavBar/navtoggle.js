@@ -7,13 +7,12 @@ Author URI: github.com/kdcoleman
 let count = 0;
 let navToggle = document.getElementById('nav-toggle');
 let animateImg = document.getElementById('homeImage');
-animateImg.addEventListener("click", toggleImgClass);
 
 // Toggle all activate classes to active to toggle navigation bar
-function toggleNavBar() {
+const toggleNavBar = () => {
   elems = document.getElementsByClassName('activate');
 
-  for (var i = 0; i < elems.length; i++) {
+  for (let i = 0; i < elems.length; i++) {
     elems[i].classList.toggle('active');
   }
 }
@@ -26,6 +25,9 @@ function toggleImgClass() {
   this.classList.add('stretch');
   this.addEventListener("transitionend", loopTransition);
 }
+
+// Create event listener for "onclick" of image
+animateImg.addEventListener("click", toggleImgClass);
 
 // Loop the transition
 function loopTransition() {

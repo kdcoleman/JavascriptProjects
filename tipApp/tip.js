@@ -13,9 +13,9 @@ let billAmountErrMsg = document.getElementById('billAmountErrMsg');
 let numGuestsErrMsg  = document.getElementById('numGuestsErrMsg');
 
 // Set Dropdown Options for Tip Percentage
-function setPercentageOptions() {
+const setPercentageOptions = () => {
   df = document.createDocumentFragment();
-  for (var i = 10; i <= 25; i++) {
+  for (let i = 10; i <= 25; i++) {
     let option = document.createElement('option');
     option.value = i;
     option.appendChild(document.createTextNode(i+"%"));
@@ -28,35 +28,35 @@ function setPercentageOptions() {
 }
 
 // Add Dropdown Options to Element
-function addPercentageOptions(element) {
+const addPercentageOptions = (element) => {
   docf = setPercentageOptions();
   element.appendChild(docf);
 }
 
 // Add percentage options when body loads
-window.addEventListener('load', function() {
+window.addEventListener('load', () => {
   addPercentageOptions(tipPercentage);
 });
 
 // Update message
-function updateMessage(element, value) {
+const updateMessage = (element, value) => {
   element.textContent = value;
 }
 
 // Calculate Tip
-function calculateTip(billAmount, tipPercentage) {
+const calculateTip = (billAmount, tipPercentage) =>{
   tip = billAmount*(tipPercentage/100);
   return tip.toFixed(2);
 }
 
 // Calculate Total with Tip
-function calculateTotal(billAmount, tip, numGuests) {
+const calculateTotal = (billAmount, tip, numGuests) => {
   totalWithTip = (billAmount + tip)/numGuests;
   return totalWithTip.toFixed(2);
 }
 
 // Display Tip and Total
-function displayTip() {
+const displayTip = () => {
   if (!billAmount.validity.valid) {
     updateMessage(billAmountErrMsg, billAmount.validationMessage);
   }
@@ -68,7 +68,7 @@ function displayTip() {
   }
 }
 
-function displayTotal() {
+const displayTotal = () => {
   if (!billAmount.validity.valid) {
     updateMessage(billAmountErrMsg, billAmount.validationMessage);
   }
@@ -87,7 +87,7 @@ function displayTotal() {
 }
 
 // Display tip and total
-function displayAmounts() {
+const displayAmounts = () => {
   updateMessage(billAmountErrMsg, "");
   updateMessage(numGuestsErrMsg, "");
   displayTip();
@@ -95,18 +95,18 @@ function displayAmounts() {
 }
 
 // Display tip and total when calculate button clicked
-calculateButton.addEventListener('click', function(){
+calculateButton.addEventListener('click', () => {
   displayAmounts();
 });
 
 // Display tip and total when press enter in input fields
-billAmount.addEventListener('keypress', function (event) {
+billAmount.addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     displayAmounts();
   }
 });
 
-numGuests.addEventListener('keypress', function (event) {
+numGuests.addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     displayAmounts();
   }

@@ -15,7 +15,7 @@ let clockTitle = document.getElementById('clockTitle');
 let timeDisplay = document.getElementById('timeDisplay');
 
 // Show current time and add timer options on load
-window.addEventListener('load', function() {
+window.addEventListener('load', () => {
   displayCurrentTime();
   startCurrentTime();
   addTimerOptions('timerHours', 0, 23);
@@ -24,39 +24,39 @@ window.addEventListener('load', function() {
 });
 
 // Add onclick event listeners for time buttons
-startTimerElement.addEventListener('click', function(){
+startTimerElement.addEventListener('click', () => {
   showClockImage();
   stopCurrentTime();
   startTimer();
 });
 
-stopTimerElement.addEventListener('click', function(){
+stopTimerElement.addEventListener('click', () => {
   stopTimer();
 });
 
-startStopwatchElement.addEventListener('click', function(){
+startStopwatchElement.addEventListener('click', () => {
   showClockImage();
   stopCurrentTime();
   stopTimer();
   startStopwatch();
 });
 
-pauseStopwatchElement.addEventListener('click', function(){
+pauseStopwatchElement.addEventListener('click', () => {
   pauseStopwatch();
 });
 
-resetStopwatchElement.addEventListener('click', function(){
+resetStopwatchElement.addEventListener('click', () => {
   resetStopwatch();
 });
 
-currentTimeElement.addEventListener('click', function(){
+currentTimeElement.addEventListener('click', () => {
   showClockImage();
   stopTimer();
   pauseStopwatch();
   startCurrentTime();
 });
 
-partyTimeElement.addEventListener('click', function(){
+partyTimeElement.addEventListener('click', () => {
   stopCurrentTime();
   stopTimer();
   pauseStopwatch();
@@ -64,7 +64,7 @@ partyTimeElement.addEventListener('click', function(){
 });
 
 // Update textContent
-function updateText(element, value) {
+const updateText = (element, value) => {
   element.textContent = value;
 }
 
@@ -107,9 +107,9 @@ let mins;
 let secs;
 
 // Set Dropdown Options for Timer
-function setTimerOptions(min, max) {
+const setTimerOptions = (min, max) => {
   df = document.createDocumentFragment();
-  for (var i = min; i <= max; i++) {
+  for (let i = min; i <= max; i++) {
     let option = document.createElement('option');
     option.value = i;
     option.appendChild(document.createTextNode(i));
@@ -125,7 +125,7 @@ function addTimerOptions(elemId, min, max) {
 }
 
 // Display how much time is left
-function displayTimeLeft() {
+const displayTimeLeft = () => {
   hrs = hrs < 10 ? ("0" + hrs).slice(-2) : hrs;
   mins = mins < 10 ? ("0" + mins).slice(-2) : mins;
   secs = secs < 10 ? ("0" + secs).slice(-2) : secs;
@@ -133,7 +133,7 @@ function displayTimeLeft() {
 }
 
 // Check how much time is left
-function checkTimeLeft() {
+const checkTimeLeft = () => {
   if (hrs >= 0 && mins >= 0 && secs > 0) {
     displayTimeLeft();
     secs--;
@@ -208,7 +208,7 @@ function pauseStopwatch() {
   }
   else {
     // If the stopwatch was already paused, start the stopwatch again
-    startStopwatchs();
+    startStopwatch();
   }
 }
 
@@ -221,7 +221,7 @@ function resetStopwatch() {
   updateText(timeDisplay, "00:00:00:000");
 }
 
-function getNewTime() {
+const getNewTime = () => {
   updatedTime = new Date().getTime();
 
   // If the stopwatch was paused continue from the paused time
